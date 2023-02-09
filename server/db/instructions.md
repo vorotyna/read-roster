@@ -4,8 +4,8 @@ psql
 
 2: Copy and paste the following commands into your terminal:
 
-CREATE DATABASE read-roster;
-\c read-roster;
+CREATE DATABASE readroster;
+\c readroster;
 \i server/db/schema/create.sql;
 \i server/db/seeds/allSeeds.sql;
 
