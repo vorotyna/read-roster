@@ -2,14 +2,20 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav className="flex flex-row mt-14 items-baseline">
+    <nav className="flex flex-row mt-14 items-baseline justify-between">
       <section>
-        <h1 className="text-3xl">
+        <h1 className="text-4xl">
           read<span className="mx-0 font-bold">roster</span>
         </h1>
       </section>
-      <section>
-        <h2 className="text-2xl">
+      <section className="flex flex-row">
+      <h2 className="text-2xl mr-20">
+          my books
+        </h2>
+      <h2 className="text-2xl mr-20">
+          due dates
+        </h2>
+        <h2 className="text-2xl mr-20">
           login
         </h2>
       </section>
