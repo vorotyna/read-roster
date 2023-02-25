@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav className="flex flex-row mt-14 items-baseline justify-between">
+    <nav className="flex flex-row mt-14 items-baseline justify-between border-b-2 pb-6">
       <section>
         <h1 className="text-4xl cursor-pointer">
           read<span className="mx-0 font-bold c text-[#ff293ef2]">roster</span>
