@@ -15,7 +15,7 @@ function Navbar() {
       <h2 className="text-2xl mr-20 cursor-pointer">
           due dates
         </h2>
-        <h2 className="text-2xl mr-20 bg-[#ff293ef2] rounded-full px-8 cursor-pointer">
+        <h2 className="text-2xl mr-20 bg-[#ff293ef2] rounded-full px-8 cursor-pointer mr-0">
           login
         </h2>
       </section>
