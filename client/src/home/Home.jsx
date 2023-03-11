@@ -7,7 +7,7 @@ function Home() {
     <div>
       <Navbar />
       <h1 className="px-8 py-5 text-lg">Keep track of borrowed library books by adding them to your book roster!</h1>
-      <div className="grid grid-columns-4 grid-flow-col gap-4">
+      <div className="grid grid-cols-4 gap-4 overflow-y-auto">
         <AddBook/>
       </div>
     </div>

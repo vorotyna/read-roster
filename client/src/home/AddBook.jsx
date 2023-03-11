@@ -2,7 +2,7 @@ import React from "react";
 
 function AddBook() {
   return (
-    <div>AddBook</div>
+    <button className="bg-gray-100 p-32 text-2xl font-light">+</button>
   )
 }
 
