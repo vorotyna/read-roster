@@ -14,7 +14,7 @@ function Home() {
       </h1>
       {open ? <Modal /> : <></>}
       <div className="grid grid-cols-4 gap-4 overflow-y-auto">
-        <AddBook setOpen={setOpen} />
+        <AddBook setOpen={setOpen} open={open} />
       </div>
     </div>
   );
