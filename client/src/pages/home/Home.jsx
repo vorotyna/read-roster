@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../navbar/Navbar";
-import AddBook from "./AddBook";
+import Navbar from "../../components/navbar/Navbar";
+import AddBook from "../../components/AddBook";
 
 function Home() {
   return (
