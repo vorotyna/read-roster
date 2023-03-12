@@ -19,38 +19,44 @@ function Modal({ setOpen, open }) {
           <h2 className="mb-4 border-b-2 pb-3 text-xl font-medium">
             Add a book
           </h2>
-          <div className="flex flex-col sm:flex-row">
-            <section className="ml-0 w-full sm:w-1/2">
-              <form className="m-0">
-                <label className="m-0 block">
-                  Title:
-                  <input type="text" name="title" className="w-full rounded" />
+          <div className="m-0">
+            <div className="flex flex-col sm:flex-row">
+              <section className="ml-0 w-full sm:w-1/2">
+                <form className="m-0">
+                  <label className="m-0 block">
+                    Title:
+                    <input
+                      type="text"
+                      name="title"
+                      className="w-full rounded"
+                    />
+                  </label>
+                  <label className="m-0 block">
+                    Author:
+                    <input
+                      type="text"
+                      name="author"
+                      className="w-full rounded"
+                    />
+                  </label>
+                  <label className="m-0 block">
+                    Library location:
+                    <input
+                      type="text"
+                      name="library"
+                      className="w-full rounded"
+                    />
+                  </label>
+                </form>
+              </section>
+              <section className="m-0 mt-4 w-full sm:mt-0 sm:w-1/2">
+                <label className="m-0 flex flex-wrap items-center">
+                  Upload a photo:
+                  <input type="file" onChange={onImageChange} />
+                  <img src={image} alt="" className="m-0 mt-4 max-h-32" />
                 </label>
-                <label className="m-0 block">
-                  Author:
-                  <input type="text" name="author" className="w-full rounded" />
-                </label>
-                <label className="m-0 block">
-                  Library location:
-                  <input
-                    type="text"
-                    name="library"
-                    className="w-full rounded"
-                  />
-                </label>
-              </form>
-            </section>
-            <section className="m-0 mt-4 w-full sm:mt-0 sm:w-1/2">
-              <label className="m-0 block">
-                Upload a photo:
-                <input
-                  type="file"
-                  onChange={onImageChange}
-                  className="filetype"
-                />
-                <img src={image} alt="" className="m-0 mt-4 max-h-32" />
-              </label>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
         <div className="my-6 flex items-center justify-center">
