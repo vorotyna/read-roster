@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Modal({ setOpen, open }) {
+  const [image, setImage] = useState(null);
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center">
       {/* <!-- Modal overlay --> */}
@@ -35,7 +43,12 @@ function Modal({ setOpen, open }) {
             <section className="m-0 mt-4 w-full sm:mt-0 sm:w-1/2">
               <label className="m-0 block">
                 Upload a photo:
-                <input type="file" className="w-full" />
+                <input
+                  type="file"
+                  onChange={onImageChange}
+                  className="filetype"
+                />
+                <img src={image} alt="" className="m-0 mt-4 max-h-32" />
               </label>
             </section>
           </div>
