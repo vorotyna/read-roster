@@ -8,14 +8,20 @@ function Home() {
 
   return (
     <div>
-      <Navbar />
-      <h1 className="px-8 py-5 text-lg">
-        Keep track of borrowed library books by adding them to your book roster!
-      </h1>
-      {open ? <Modal /> : <></>}
-      <div className="grid grid-cols-4 gap-4 overflow-y-auto">
-        <AddBook setOpen={setOpen} open={open} />
-      </div>
+      {open ? (
+        <Modal setOpen={setOpen} open={open} />
+      ) : (
+        <>
+          <Navbar />
+          <h1 className="px-8 py-5 text-lg">
+            Keep track of borrowed library books by adding them to your book
+            roster!
+          </h1>
+          <div className="grid grid-cols-4 gap-4 overflow-y-auto">
+            <AddBook setOpen={setOpen} open={open} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
