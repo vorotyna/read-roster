@@ -23,38 +23,80 @@ function Modal({ setOpen, open }) {
             <div className="flex flex-col sm:flex-row">
               <section className="ml-0 w-full sm:w-1/2">
                 <form className="m-0">
-                  <label className="m-0 block">
-                    Title:
+                  <label className="m-0 mb-2 block">
+                    Title <span className="m-0 text-[#ff293ef2]">*</span>
                     <input
                       type="text"
                       name="title"
                       className="w-full rounded"
                     />
                   </label>
-                  <label className="m-0 block">
-                    Author:
+                  <label className="m-0 mb-2 block">
+                    Author <span className="m-0 text-[#ff293ef2]">*</span>
                     <input
                       type="text"
                       name="author"
                       className="w-full rounded"
                     />
                   </label>
-                  <label className="m-0 block">
-                    Library location:
+                  <label className="m-0 mb-2 block">
+                    Library location
+                    <span className="m-0 text-[#ff293ef2]">*</span>
                     <input
                       type="text"
                       name="library"
                       className="w-full rounded"
                     />
                   </label>
+                  <label className="m-0 block">
+                    Due date <span className="m-0 text-[#ff293ef2]">*</span>
+                    <input type="date" name="due" className="w-full rounded" />
+                  </label>
                 </form>
               </section>
               <section className="m-0 mt-4 w-full sm:mt-0 sm:w-1/2">
-                <label className="m-0 flex flex-wrap items-center">
-                  Upload a photo:
-                  <input type="file" onChange={onImageChange} />
-                  <img src={image} alt="" className="m-0 mt-4 max-h-32" />
-                </label>
+                <div className="m-0 flex flex-col">
+                  <label className="m-0 mb-1">Due date alert methods</label>
+                  <label
+                    for="toggle"
+                    className="m-0 mb-2 flex cursor-pointer items-center"
+                  >
+                    <div className="relative m-0 ">
+                      <input type="checkbox" id="toggle" className="sr-only" />
+                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
+                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                    </div>
+                    <div className="m-0 mr-2">Email</div>
+                  </label>
+                  <label
+                    for="toggle"
+                    className="m-0 mb-2 flex cursor-pointer items-center "
+                  >
+                    <div className="relative m-0 ">
+                      <input type="checkbox" id="toggle" className="sr-only" />
+                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
+                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                    </div>
+                    <div className="m-0 mr-2">SMS</div>
+                  </label>
+                  <label
+                    for="toggle"
+                    className="m-0 mb-2 flex cursor-pointer items-center "
+                  >
+                    <div className="relative m-0 ">
+                      <input type="checkbox" id="toggle" className="sr-only" />
+                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
+                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                    </div>
+                    <div className="m-0 mr-2">Calendar</div>
+                  </label>
+                  <label className="m-0 flex flex-wrap items-center">
+                    Upload a photo
+                    <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
+                    <input type="file" onChange={onImageChange} />
+                    <img src={image} alt="" className="m-0 mt-2 max-h-20" />
+                  </label>
+                </div>
               </section>
             </div>
           </div>
