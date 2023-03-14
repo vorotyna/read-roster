@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Modal({ setOpen, open }) {
+function Modal({ props }) {
   const [image, setImage] = useState(null);
 
   const onImageChange = (event) => {
@@ -9,10 +9,33 @@ function Modal({ setOpen, open }) {
     }
   };
 
+  const onToggleChange = (toggleName) => {
+    switch (toggleName) {
+      case "email":
+        console.log(toggleName);
+        props.setEmail(!props.email);
+        console.log(!props.email);
+        break;
+      case "SMS":
+        console.log(toggleName);
+        props.setSMS(!props.SMS);
+        console.log(!props.SMS);
+        break;
+      case "calendar":
+        console.log(toggleName);
+        props.setCalendar(!props.calendar);
+        console.log(!props.calendar);
+        break;
+      default:
+        console.log("Invalid toggle");
+        break;
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center">
       {/* <!-- Modal overlay --> */}
-      <div class="fixed inset-0 z-20 m-0 backdrop-blur"></div>
+      <div className="fixed inset-0 z-20 m-0 backdrop-blur"></div>
       {/* Modal container */}
       <div className="z-20 flex h-auto w-3/5 flex-col justify-between rounded-lg bg-white p-8 shadow-lg">
         <div className="mb-6">
@@ -23,7 +46,7 @@ function Modal({ setOpen, open }) {
             <div className="flex flex-col sm:flex-row">
               <section className="ml-0 w-full sm:w-1/2">
                 <form className="m-0">
-                  <label className="m-0 mb-2 block">
+                  <label htmlFor="title" className="m-0 mb-2 block">
                     Title <span className="m-0 text-[#ff293ef2]">*</span>
                     <input
                       type="text"
@@ -57,36 +80,77 @@ function Modal({ setOpen, open }) {
               <section className="m-0 mt-4 w-full sm:mt-0 sm:w-1/2">
                 <div className="m-0 flex flex-col">
                   <label className="m-0 mb-1">Due date alert methods</label>
-                  <label
-                    for="toggle"
-                    className="m-0 mb-2 flex cursor-pointer items-center"
-                  >
+                  <label className="m-0 mb-2 flex cursor-pointer items-center">
                     <div className="relative m-0 ">
-                      <input type="checkbox" id="toggle" className="sr-only" />
-                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
-                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={props.email}
+                        onChange={() => onToggleChange("email")}
+                      />
+                      <div
+                        id="email-toggle"
+                        className={
+                          props.email
+                            ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
+                            : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          props.email
+                            ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                            : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                        }
+                      ></div>
                     </div>
                     <div className="m-0 mr-2">Email</div>
                   </label>
-                  <label
-                    for="toggle"
-                    className="m-0 mb-2 flex cursor-pointer items-center "
-                  >
+                  <label className="m-0 mb-2 flex cursor-pointer items-center ">
                     <div className="relative m-0 ">
-                      <input type="checkbox" id="toggle" className="sr-only" />
-                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
-                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        onChange={() => onToggleChange("SMS")}
+                      />
+                      <div
+                        className={
+                          props.SMS
+                            ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
+                            : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          props.SMS
+                            ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                            : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                        }
+                      ></div>
                     </div>
                     <div className="m-0 mr-2">SMS</div>
                   </label>
-                  <label
-                    for="toggle"
-                    className="m-0 mb-2 flex cursor-pointer items-center "
-                  >
+                  <label className="m-0 mb-2 flex cursor-pointer items-center ">
                     <div className="relative m-0 ">
-                      <input type="checkbox" id="toggle" className="sr-only" />
-                      <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
-                      <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        onChange={() => onToggleChange("calendar")}
+                      />
+                      <div
+                        className={
+                          props.calendar
+                            ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
+                            : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          props.calendar
+                            ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                            : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
+                        }
+                      ></div>
                     </div>
                     <div className="m-0 mr-2">Calendar</div>
                   </label>
@@ -104,7 +168,7 @@ function Modal({ setOpen, open }) {
         <div className="my-6 flex items-center justify-center">
           <button
             className="mr-4 rounded bg-gray-500 px-5 py-2 text-white hover:bg-gray-600"
-            onClick={() => setOpen(!open)}
+            onClick={() => props.setOpen(!props.open)}
           >
             Cancel
           </button>

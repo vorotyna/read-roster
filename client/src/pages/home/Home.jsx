@@ -5,12 +5,26 @@ import Modal from "../../components/Modal";
 
 function Home() {
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState(false);
+  const [SMS, setSMS] = useState(false);
+  const [calendar, setCalendar] = useState(false);
+
+  let props = {
+    open,
+    setOpen,
+    email,
+    setEmail,
+    SMS,
+    setSMS,
+    calendar,
+    setCalendar,
+  };
 
   return (
     <div>
       {open ? (
         <>
-          <Modal setOpen={setOpen} open={open} />
+          <Modal props={props} />
           <Navbar />
           <h1 className="px-8 py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
