@@ -64,7 +64,7 @@ function Modal({ props }) {
                   </label>
                   <label className="m-0 mb-2 block">
                     Library location
-                    <span className="m-0 text-[#ff293ef2]">*</span>
+                    <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
                     <input
                       type="text"
                       name="library"
