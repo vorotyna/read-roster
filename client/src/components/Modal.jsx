@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Modal({ props }) {
-  const [image, setImage] = useState(null);
-
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-    }
-  };
-
-  const onToggleChange = (toggleName) => {
-    switch (toggleName) {
+function Modal({ props, setBook, book }) {
+  const onBookChange = (modifier) => (event) => {
+    switch (modifier) {
+      case "title":
+        console.log(modifier);
+        console.log(event.target.value);
+        setBook({ ...book, title: event.target.value });
+        break;
+      case "author":
+        console.log(modifier);
+        console.log(event.target.value);
+        setBook({ ...book, author: event.target.value });
+        break;
+      case "location":
+        console.log(modifier);
+        console.log(event.target.value);
+        setBook({ ...book, location: event.target.value });
+        break;
+      case "dueDate":
+        console.log(modifier);
+        console.log(event.target.value);
+        setBook({ ...book, dueDate: event.target.value });
+        break;
       case "email":
-        console.log(toggleName);
-        props.setEmail(!props.email);
-        console.log(!props.email);
+        console.log(modifier);
+        setBook({ ...book, email: !book.email });
         break;
       case "SMS":
-        console.log(toggleName);
-        props.setSMS(!props.SMS);
-        console.log(!props.SMS);
+        console.log(modifier);
+        setBook({ ...book, SMS: !book.SMS });
         break;
       case "calendar":
-        console.log(toggleName);
-        props.setCalendar(!props.calendar);
-        console.log(!props.calendar);
+        console.log(modifier);
+        setBook({ ...book, calendar: !book.calendar });
+        break;
+      case "image":
+        console.log(modifier);
+        setBook({ ...book, image: URL.createObjectURL(event.target.files[0]) });
         break;
       default:
-        console.log("Invalid toggle");
+        console.log("Invalid book change");
         break;
     }
+    console.log(book);
   };
 
   return (
@@ -52,6 +66,7 @@ function Modal({ props }) {
                       type="text"
                       name="title"
                       className="w-full rounded"
+                      onChange={onBookChange("title")}
                     />
                   </label>
                   <label className="m-0 mb-2 block">
@@ -60,6 +75,7 @@ function Modal({ props }) {
                       type="text"
                       name="author"
                       className="w-full rounded"
+                      onChange={onBookChange("author")}
                     />
                   </label>
                   <label className="m-0 mb-2 block">
@@ -69,11 +85,17 @@ function Modal({ props }) {
                       type="text"
                       name="library"
                       className="w-full rounded"
+                      onChange={onBookChange("location")}
                     />
                   </label>
                   <label className="m-0 block">
                     Due date <span className="m-0 text-[#ff293ef2]">*</span>
-                    <input type="date" name="due" className="w-full rounded" />
+                    <input
+                      type="date"
+                      name="due"
+                      className="w-full rounded"
+                      onChange={onBookChange("dueDate")}
+                    />
                   </label>
                 </form>
               </section>
@@ -85,20 +107,20 @@ function Modal({ props }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        checked={props.email}
-                        onChange={() => onToggleChange("email")}
+                        checked={book.email}
+                        onChange={onBookChange("email")}
                       />
                       <div
                         id="email-toggle"
                         className={
-                          props.email
+                          book.email
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          props.email
+                          book.email
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -111,18 +133,18 @@ function Modal({ props }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        onChange={() => onToggleChange("SMS")}
+                        onChange={onBookChange("SMS")}
                       />
                       <div
                         className={
-                          props.SMS
+                          book.SMS
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          props.SMS
+                          book.SMS
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -135,18 +157,18 @@ function Modal({ props }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        onChange={() => onToggleChange("calendar")}
+                        onChange={onBookChange("calendar")}
                       />
                       <div
                         className={
-                          props.calendar
+                          book.calendar
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          props.calendar
+                          book.calendar
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -157,8 +179,12 @@ function Modal({ props }) {
                   <label className="m-0 flex flex-wrap items-center">
                     Upload a photo
                     <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
-                    <input type="file" onChange={onImageChange} />
-                    <img src={image} alt="" className="m-0 mt-2 max-h-20" />
+                    <input type="file" onChange={onBookChange("image")} />
+                    <img
+                      src={book.image}
+                      alt=""
+                      className="m-0 mt-2 max-h-20"
+                    />
                   </label>
                 </div>
               </section>
