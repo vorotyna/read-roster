@@ -2,21 +2,17 @@ import React, { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import AddBook from "../../components/AddBook";
 import Modal from "../../components/Modal";
+import useBook from "../../hooks/useBook";
 
 function Home() {
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState({
-    title: null,
-    author: null,
-    location: null,
-    dueDate: null,
-    email: false,
-    SMS: false,
-    calendar: false,
-    image: null,
-  });
+
+  const { book, onBookChange, saveBook } = useBook();
 
   let props = {
+    book,
+    onBookChange,
+    saveBook,
     open,
     setOpen,
   };
@@ -25,7 +21,7 @@ function Home() {
     <div>
       {open ? (
         <>
-          <Modal props={props} book={book} setBook={setBook} />
+          <Modal props={props} />
           <Navbar />
           <h1 className="px-8 py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
