@@ -1,51 +1,6 @@
 import React from "react";
 
-function Modal({ props, setBook, book }) {
-  const onBookChange = (modifier) => (event) => {
-    switch (modifier) {
-      case "title":
-        console.log(modifier);
-        console.log(event.target.value);
-        setBook({ ...book, title: event.target.value });
-        break;
-      case "author":
-        console.log(modifier);
-        console.log(event.target.value);
-        setBook({ ...book, author: event.target.value });
-        break;
-      case "location":
-        console.log(modifier);
-        console.log(event.target.value);
-        setBook({ ...book, location: event.target.value });
-        break;
-      case "dueDate":
-        console.log(modifier);
-        console.log(event.target.value);
-        setBook({ ...book, dueDate: event.target.value });
-        break;
-      case "email":
-        console.log(modifier);
-        setBook({ ...book, email: !book.email });
-        break;
-      case "SMS":
-        console.log(modifier);
-        setBook({ ...book, SMS: !book.SMS });
-        break;
-      case "calendar":
-        console.log(modifier);
-        setBook({ ...book, calendar: !book.calendar });
-        break;
-      case "image":
-        console.log(modifier);
-        setBook({ ...book, image: URL.createObjectURL(event.target.files[0]) });
-        break;
-      default:
-        console.log("Invalid book change");
-        break;
-    }
-    console.log(book);
-  };
-
+function Modal({ props }) {
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center">
       {/* <!-- Modal overlay --> */}
@@ -66,7 +21,7 @@ function Modal({ props, setBook, book }) {
                       type="text"
                       name="title"
                       className="w-full rounded"
-                      onChange={onBookChange("title")}
+                      onChange={props.onBookChange("title")}
                     />
                   </label>
                   <label className="m-0 mb-2 block">
@@ -75,7 +30,7 @@ function Modal({ props, setBook, book }) {
                       type="text"
                       name="author"
                       className="w-full rounded"
-                      onChange={onBookChange("author")}
+                      onChange={props.onBookChange("author")}
                     />
                   </label>
                   <label className="m-0 mb-2 block">
@@ -85,7 +40,7 @@ function Modal({ props, setBook, book }) {
                       type="text"
                       name="library"
                       className="w-full rounded"
-                      onChange={onBookChange("location")}
+                      onChange={props.onBookChange("location")}
                     />
                   </label>
                   <label className="m-0 block">
@@ -94,7 +49,7 @@ function Modal({ props, setBook, book }) {
                       type="date"
                       name="due"
                       className="w-full rounded"
-                      onChange={onBookChange("dueDate")}
+                      onChange={props.onBookChange("dueDate")}
                     />
                   </label>
                 </form>
@@ -107,20 +62,20 @@ function Modal({ props, setBook, book }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        checked={book.email}
-                        onChange={onBookChange("email")}
+                        checked={props.book.email}
+                        onChange={props.onBookChange("email")}
                       />
                       <div
                         id="email-toggle"
                         className={
-                          book.email
+                          props.book.email
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          book.email
+                          props.book.email
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -133,18 +88,18 @@ function Modal({ props, setBook, book }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        onChange={onBookChange("SMS")}
+                        onChange={props.onBookChange("SMS")}
                       />
                       <div
                         className={
-                          book.SMS
+                          props.book.SMS
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          book.SMS
+                          props.book.SMS
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -157,18 +112,18 @@ function Modal({ props, setBook, book }) {
                       <input
                         type="checkbox"
                         className="sr-only"
-                        onChange={onBookChange("calendar")}
+                        onChange={props.onBookChange("calendar")}
                       />
                       <div
                         className={
-                          book.calendar
+                          props.book.calendar
                             ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
                             : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
                         }
                       ></div>
                       <div
                         className={
-                          book.calendar
+                          props.book.calendar
                             ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                             : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
                         }
@@ -179,9 +134,9 @@ function Modal({ props, setBook, book }) {
                   <label className="m-0 flex flex-wrap items-center">
                     Upload a photo
                     <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
-                    <input type="file" onChange={onBookChange("image")} />
+                    <input type="file" onChange={props.onBookChange("image")} />
                     <img
-                      src={book.image}
+                      src={props.book.image}
                       alt=""
                       className="m-0 mt-2 max-h-20"
                     />
@@ -198,7 +153,10 @@ function Modal({ props, setBook, book }) {
           >
             Cancel
           </button>
-          <button className="rounded bg-blue-500 px-7 py-2 text-white hover:bg-blue-600">
+          <button
+            className="rounded bg-blue-500 px-7 py-2 text-white hover:bg-blue-600"
+            onClick={props.saveBook}
+          >
             Save
           </button>
         </div>
