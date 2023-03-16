@@ -14,14 +14,14 @@ const getBooksByUserId = async (id) => {
   return data.rows;
 };
 
-const addBook = async (user_id, title, author, location, photo) => {
+const addBook = async (book) => {
   const data = await db.query(
     `INSERT INTO books (user_id, title, author, location, photo)
     VALUES ($1, $2, $3, $4, $5)
     RETURNING *;`,
-    [user_id, title, author, location, photo]
+    [book.user_id, book.title, book.author, book.location, book.photo]
   );
-
+  return data.rows[0];
 };
 
 module.exports = { getAllBooks, getBooksByUserId, addBook };
