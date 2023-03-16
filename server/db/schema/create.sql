@@ -16,7 +16,7 @@ CREATE TABLE books (
     title VARCHAR(255) NOT NULL UNIQUE,
     author VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
-    photo VARCHAR(1000),
+    photo VARCHAR(1000)
 );
 
 CREATE TABLE alerts (
