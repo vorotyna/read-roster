@@ -42,7 +42,7 @@ function Home() {
     }
   };
 
-  // Function the makes a get request when the page mounts and when isSave changes
+  // Function the makes a get request when the page mounts or/and when isSave changes
   const handleRender = async () => {
     try {
       await axios.get("http://localhost:8001/api/books");
