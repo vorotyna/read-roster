@@ -149,7 +149,19 @@ function Modal({ props }) {
         <div className="my-6 flex items-center justify-center">
           <button
             className="mr-4 rounded bg-gray-500 px-5 py-2 text-white hover:bg-gray-600"
-            onClick={() => props.setOpen(!props.open)}
+            onClick={() => {
+              props.setOpen(!props.open);
+              props.setBook({
+                title: null,
+                author: null,
+                location: null,
+                due_date: null,
+                email: false,
+                SMS: false,
+                calendar: false,
+                photo: null,
+              });
+            }}
           >
             Cancel
           </button>
@@ -169,3 +181,4 @@ function Modal({ props }) {
 }
 
 export default Modal;
+// onclose set book to null

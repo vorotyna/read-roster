@@ -12,7 +12,7 @@ function Home() {
   const [isSave, setIsSave] = useState(false);
 
   // Custom hook which handles the new book's state
-  const { book, onBookChange, saveBook } = useBook();
+  const { book, onBookChange, saveBook, setBook } = useBook();
 
   // Props object that gets passed in to Modal
   let props = {
@@ -23,6 +23,7 @@ function Home() {
     setOpen,
     isSave,
     setIsSave,
+    setBook,
   };
 
   // Function that makes a post request to save the book when none of the input fields are empty
@@ -39,6 +40,16 @@ function Home() {
       }
       setIsSave(false);
       setOpen(false);
+      setBook({
+        title: null,
+        author: null,
+        location: null,
+        due_date: null,
+        email: false,
+        SMS: false,
+        calendar: false,
+        photo: null,
+      });
     }
   };
 

@@ -53,6 +53,7 @@ function useBook() {
     book,
     onBookChange,
     saveBook,
+    setBook,
   };
 }
 
