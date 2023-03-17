@@ -49,7 +49,7 @@ function Modal({ props }) {
                       type="date"
                       name="due"
                       className="w-full rounded"
-                      onChange={props.onBookChange("dueDate")}
+                      onChange={props.onBookChange("due_date")}
                     />
                   </label>
                 </form>

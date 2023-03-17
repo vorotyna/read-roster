@@ -25,7 +25,7 @@ function Home() {
     const isNotNull = Object.values(book).every(
       (param) => param !== null && param !== ""
     ); // Need to add a default photo URL to books, otherwise need to make it not null
-    console.log("isnot null", isNotNull);
+
     if (isNotNull) {
       try {
         const saveSuccess = await axios.post(
