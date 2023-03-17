@@ -12,12 +12,10 @@ router
     books.getAllBooks()
       .then(data => {
         console.log(data);
-        res.send(data);
-        res.status(204).send('All books retrieved');
+        res.status(204).send(data);
       })
       .catch(error => {
-        console.error(error);
-        res.status(500).send('Internal server error');
+        res.status(500).send(error);
       });
   });
 
@@ -32,6 +30,7 @@ router
     const SMS = req.body.SMS;
     const email = req.body.email;
     const calendar = req.body.calendar;
+    const photo = req.body.photo;
 
     let book = {
       user_id,
@@ -57,13 +56,17 @@ router
 
         alerts.addAlerts(alert)
           .then((data) => {
-            res.status(200).send('Book and alerts added');
+            res.status(200).send(data);
           })
           .catch(error => {
-            res.status(500).send('An error occurred while adding the book and alert', error);
+            console.error("Could not add alert", error);
+            res.status(500).send(error);
           });
       })
       .catch(error => {
-        res.status(500).send('An error occurred while adding the book', error);
+        console.error("Could not add book", error);
+        res.status(500).send(error);
       });
   });
+
+module.exports = router;

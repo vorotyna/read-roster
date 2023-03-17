@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import AddBook from "../../components/AddBook";
 import Modal from "../../components/Modal";
 import useBook from "../../hooks/useBook";
+import axios from "axios";
 
 function Home() {
   const [open, setOpen] = useState(false);
+  const [isSave, setIsSave] = useState(false);
 
   const { book, onBookChange, saveBook } = useBook();
 
@@ -15,7 +17,38 @@ function Home() {
     saveBook,
     open,
     setOpen,
+    isSave,
+    setIsSave,
   };
+
+  const handleSave = async () => {
+    const isNotNull = Object.values(book).every(
+      (param) => param !== null && param !== ""
+    ); // Need to add a default photo URL to books, otherwise need to make it not null
+    console.log("isnot null", isNotNull);
+    if (isNotNull) {
+      try {
+        const saveSuccess = await axios.post(
+          "http://localhost:8001/api/books/new",
+          book
+        );
+        if (saveSuccess.data.success === true) {
+          console.log("SUCCESS-ADDED");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+      setIsSave(false);
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isSave) {
+      handleSave();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSave]);
 
   return (
     <div>

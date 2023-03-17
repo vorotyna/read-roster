@@ -134,9 +134,9 @@ function Modal({ props }) {
                   <label className="m-0 flex flex-wrap items-center">
                     Upload a photo
                     <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
-                    <input type="file" onChange={props.onBookChange("image")} />
+                    <input type="file" onChange={props.onBookChange("photo")} />
                     <img
-                      src={props.book.image}
+                      src={props.book.photo}
                       alt=""
                       className="m-0 mt-2 max-h-20"
                     />
@@ -155,7 +155,10 @@ function Modal({ props }) {
           </button>
           <button
             className="rounded bg-blue-500 px-7 py-2 text-white hover:bg-blue-600"
-            onClick={props.saveBook}
+            onClick={() => {
+              props.saveBook();
+              props.setIsSave(true);
+            }}
           >
             Save
           </button>

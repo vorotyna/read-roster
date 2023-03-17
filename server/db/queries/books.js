@@ -1,4 +1,4 @@
-const db = require('../index');
+const db = require('../index.js');
 
 const getAllBooks = async () => {
   const data = await db.query(

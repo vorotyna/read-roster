@@ -13,7 +13,7 @@ router
         res.status(204).send('All users retrieved');
       })
       .catch(error => {
-        res.status(500).send('An error occurred while retrieving all the users', error);
+        res.status(500).send(error);
       });
   })
   .post((req, res) => {
@@ -22,7 +22,7 @@ router
         res.status(204).send('New user added');
       })
       .catch(error => {
-        res.status(500).send('An error occurred while adding a new user', error);
+        res.status(500).send(error);
 
       });
   });
@@ -34,6 +34,8 @@ router.get('/:id', (req, res) => {
       res.status(204).send('User retrieved by id');
     })
     .catch(error => {
-      res.status(500).send('An error occurred while retrieving a user by id', error);
+      res.status(500).send(error);
     });
 });
+
+module.exports = router;
