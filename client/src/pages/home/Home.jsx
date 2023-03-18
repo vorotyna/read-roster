@@ -95,8 +95,13 @@ function Home() {
             Keep track of borrowed library books by adding them to your book
             roster!
           </h1>
-          <div className="grid grid-cols-4 gap-4 overflow-y-auto">
-            {/* <AddBook setOpen={setOpen} open={open} /> */}
+          <div className="sm:gris-cols-1 grid gap-4 overflow-y-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <AddBook setOpen={setOpen} open={open} />
+            <ExistingBook props={props} />
+            <ExistingBook props={props} />
+            <ExistingBook props={props} />
+            <ExistingBook props={props} />
+            <ExistingBook props={props} />
             <ExistingBook props={props} />
           </div>
         </>
