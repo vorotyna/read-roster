@@ -55,9 +55,21 @@ function Home() {
   };
 
   // Function the makes a get request when the page mounts or/and when isSave changes
+  // let oldBook = {
+  //   title,
+  //   author,
+  //   location,
+  //   due_date,
+  //   email,
+  //   SMS,
+  //   calendar,
+  //   photo,
+  // };
+
   const handleRender = async () => {
     try {
-      await axios.get("http://localhost:8001/api/books");
+      const bookInfo = await axios.get("http://localhost:8001/api/books");
+      console.log(bookInfo.rows);
     } catch (error) {
       console.error(error);
     }

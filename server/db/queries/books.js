@@ -1,8 +1,8 @@
 const db = require('../index.js');
 
-const getAllBooks = async () => {
+const getAllBooksAndAlerts = async () => {
   const data = await db.query(
-    'SELECT * FROM books;'
+    'SELECT * FROM books JOIN alerts ON books.id = book_id;'
   );
   return data.rows;
 };
@@ -24,4 +24,4 @@ const addBook = async (book) => {
   return data.rows[0];
 };
 
-module.exports = { getAllBooks, getBooksByUserId, addBook };
+module.exports = { getAllBooks, getBooksByUserId, addBook, getAllBooksAndAlerts };
