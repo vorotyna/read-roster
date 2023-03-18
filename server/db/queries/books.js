@@ -24,4 +24,4 @@ const addBook = async (book) => {
   return data.rows[0];
 };
 
-module.exports = { getAllBooks, getBooksByUserId, addBook, getAllBooksAndAlerts };
+module.exports = { getBooksByUserId, addBook, getAllBooksAndAlerts };

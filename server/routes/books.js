@@ -9,7 +9,7 @@ const alerts = require('../db/queries/alerts');
 router
   .route('/')
   .get((req, res) => {
-    books.getAllBooks()
+    books.getAllBooksAndAlerts()
       .then(data => {
         console.log(data);
         res.status(204).send(data);
