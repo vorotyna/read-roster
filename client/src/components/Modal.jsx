@@ -181,4 +181,3 @@ function Modal({ props }) {
 }
 
 export default Modal;
-// onclose set book to null

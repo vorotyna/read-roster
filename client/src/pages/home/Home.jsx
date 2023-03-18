@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import AddBook from "../../components/AddBook";
 import Modal from "../../components/Modal";
+import ExistingBook from "../../components/ExistingBook";
 import useBook from "../../hooks/useBook";
 import axios from "axios";
 
@@ -84,6 +85,7 @@ function Home() {
           </h1>
           <div className="grid grid-cols-4 gap-4 overflow-y-auto">
             <AddBook setOpen={setOpen} open={open} />
+            <ExistingBook />
           </div>
         </>
       ) : (
@@ -94,7 +96,8 @@ function Home() {
             roster!
           </h1>
           <div className="grid grid-cols-4 gap-4 overflow-y-auto">
-            <AddBook setOpen={setOpen} open={open} />
+            {/* <AddBook setOpen={setOpen} open={open} /> */}
+            <ExistingBook />
           </div>
         </>
       )}
