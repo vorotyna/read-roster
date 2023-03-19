@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
-
+  console.log(book.photo);
   return (
     <div className="m-0">
       <div
@@ -49,25 +49,23 @@ function ExistingBook({ book, index }) {
           </div>
         ) : (
           <img
-            src="alisa.png"
+            src={book.photo}
+            key={index}
             alt=""
             className="m-0 h-72 w-64 rounded-xl object-cover"
           />
         )}
       </div>
       <div className="m-0 w-64">
-        <h2 className="truncate p-0 px-2 text-center font-semibold" key={index}>
+        <h2 className="truncate p-0 px-2 text-center font-semibold">
           {book.title}
         </h2>
-        <p
-          className="w-64 truncate text-center text-sm font-light italic"
-          key={index}
-        >
+        <p className="w-64 truncate text-center text-sm font-light italic">
           {book.author}
         </p>
-        <p className="w-64 text-center text-sm text-[#ff293ef2]" key={index}>
+        <p className="w-64 text-center text-sm text-[#ff293ef2]">
           {" "}
-          {book.due_date}
+          {book.due_date.split("T")[0]}
         </p>
       </div>
     </div>
