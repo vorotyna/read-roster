@@ -3,7 +3,6 @@ import React, { useState } from "react";
 function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
-  console.log(book.photo);
   return (
     <div className="m-0">
       <div
