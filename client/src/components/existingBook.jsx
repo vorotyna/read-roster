@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function ExistingBook() {
+function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
 
   return (
     <div className="m-0">
-      <button
+      <div
         className="m-0 flex h-72 w-64 cursor-auto rounded-xl p-0"
         onMouseEnter={() => setFlip(true)}
         onMouseLeave={() => setFlip(false)}
@@ -54,17 +54,20 @@ function ExistingBook() {
             className="m-0 h-72 w-64 rounded-xl object-cover"
           />
         )}
-      </button>
+      </div>
       <div className="m-0 w-64">
-        <h2 className="truncate p-0 px-2 text-center font-semibold">
-          Liso Piso in Wonderland
+        <h2 className="truncate p-0 px-2 text-center font-semibold" key={index}>
+          {book.title}
         </h2>
-        <p className="w-64 truncate text-center text-sm font-light italic">
-          Luko S.E. Puko
+        <p
+          className="w-64 truncate text-center text-sm font-light italic"
+          key={index}
+        >
+          {book.author}
         </p>
-        <p className="w-64 text-center text-sm text-[#ff293ef2]">
+        <p className="w-64 text-center text-sm text-[#ff293ef2]" key={index}>
           {" "}
-          May 7, 2000
+          {book.due_date}
         </p>
       </div>
     </div>

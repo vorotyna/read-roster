@@ -11,6 +11,8 @@ function Home() {
   const [open, setOpen] = useState(false);
   // Set state to post the new book to DB
   const [isSave, setIsSave] = useState(false);
+  //
+  const [populate, setPopulate] = useState([]);
 
   // Custom hook which handles the new book's state
   const { book, onBookChange, saveBook, setBook } = useBook();
@@ -55,21 +57,10 @@ function Home() {
   };
 
   // Function the makes a get request when the page mounts or/and when isSave changes
-  // let oldBook = {
-  //   title,
-  //   author,
-  //   location,
-  //   due_date,
-  //   email,
-  //   SMS,
-  //   calendar,
-  //   photo,
-  // };
-
   const handleRender = async () => {
     try {
-      const bookInfo = await axios.get("http://localhost:8001/api/books");
-      console.log(bookInfo.rows);
+      const booksInfo = await axios.get("http://localhost:8001/api/books");
+      setPopulate(booksInfo.data);
     } catch (error) {
       console.error(error);
     }
@@ -109,12 +100,9 @@ function Home() {
           </h1>
           <div className="sm:gris-cols-1 grid gap-4 overflow-y-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <AddBook setOpen={setOpen} open={open} />
-            <ExistingBook props={props} />
-            <ExistingBook props={props} />
-            <ExistingBook props={props} />
-            <ExistingBook props={props} />
-            <ExistingBook props={props} />
-            <ExistingBook props={props} />
+            {populate.map((book, index) => (
+              <ExistingBook index={index} book={book} />
+            ))}
           </div>
         </>
       )}

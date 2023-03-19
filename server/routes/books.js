@@ -11,8 +11,7 @@ router
   .get((req, res) => {
     books.getAllBooksAndAlerts()
       .then(data => {
-        console.log(data);
-        res.status(204).send(data);
+        res.status(200).send(data);
       })
       .catch(error => {
         res.status(500).send(error);
