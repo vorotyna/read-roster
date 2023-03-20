@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
+
+  const updateAlerts = (alertType) => {
+    book[alertType] = !book[alertType];
+    // PUT REQUEST
+  };
+
   return (
     <div className="m-0">
       <div
@@ -16,38 +23,26 @@ function ExistingBook({ book, index }) {
               src={book.photo}
               key={index}
               alt="cover"
-              className=" absolute z-0 m-0 h-72 w-64 rounded-xl object-cover blur-sm"
+              className=" absolute z-0 m-0 h-72 w-64 rounded-xl object-cover opacity-50 blur-sm"
             ></img>
             <div className="relative m-0 flex h-full w-full flex-col items-center justify-around rounded-xl bg-cover bg-center">
               <h1 className="mt-4 font-semibold">Current alert preferences:</h1>
               <div className="m-6 my-0 px-6">
-                <label className="m-0 mb-2 flex cursor-pointer items-center">
-                  <div className="relative m-0 ">
-                    <input type="checkbox" className="sr-only" />
-                    <div
-                      id="email-toggle"
-                      className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
-                    ></div>
-                    <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
-                  </div>
-                  <div className="m-0 mr-2">Email</div>
-                </label>
-                <label className="m-0 mb-2 flex cursor-pointer items-center ">
-                  <div className="relative m-0 ">
-                    <input type="checkbox" className="sr-only" />
-                    <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
-                    <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
-                  </div>
-                  <div className="m-0 mr-2">SMS</div>
-                </label>
-                <label className="m-0 mb-2 flex cursor-pointer items-center ">
-                  <div className="relative m-0 ">
-                    <input type="checkbox" className="sr-only" />
-                    <div className="ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"></div>
-                    <div className="dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"></div>
-                  </div>
-                  <div className="m-0 mr-2">Calendar</div>
-                </label>
+                <Button
+                  buttonTitle={"email"}
+                  book={book}
+                  updateAlerts={updateAlerts}
+                />
+                <Button
+                  buttonTitle={"sms"}
+                  book={book}
+                  updateAlerts={updateAlerts}
+                />
+                <Button
+                  buttonTitle={"calendar"}
+                  book={book}
+                  updateAlerts={updateAlerts}
+                />
               </div>
               <button className="mx-auto mb-6 w-3/5 items-center rounded-full bg-[#ff293ef2] py-1 text-center">
                 delete book

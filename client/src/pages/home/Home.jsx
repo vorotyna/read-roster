@@ -62,6 +62,7 @@ function Home() {
       const booksInfo = await axios.get("http://localhost:8001/api/books");
       console.log(booksInfo.data);
       setPopulate(booksInfo.data);
+      console.log("alerts", populate);
     } catch (error) {
       console.error(error);
     }
