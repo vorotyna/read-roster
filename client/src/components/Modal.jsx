@@ -81,7 +81,7 @@ function Modal({ props }) {
                         }
                       ></div>
                     </div>
-                    <div className="m-0 mr-2">Email</div>
+                    <div className="m-0 mr-2">email</div>
                   </label>
                   <label className="m-0 mb-2 flex cursor-pointer items-center ">
                     <div className="relative m-0 ">
@@ -105,7 +105,7 @@ function Modal({ props }) {
                         }
                       ></div>
                     </div>
-                    <div className="m-0 mr-2">SMS</div>
+                    <div className="m-0 mr-2">sms</div>
                   </label>
                   <label className="m-0 mb-2 flex cursor-pointer items-center ">
                     <div className="relative m-0 ">
@@ -129,7 +129,7 @@ function Modal({ props }) {
                         }
                       ></div>
                     </div>
-                    <div className="m-0 mr-2">Calendar</div>
+                    <div className="m-0 mr-2">calendar</div>
                   </label>
                   <label className="m-0 flex flex-wrap items-center">
                     Upload a photo
@@ -148,7 +148,7 @@ function Modal({ props }) {
         </div>
         <div className="my-6 flex items-center justify-center">
           <button
-            className="mr-4 rounded bg-gray-500 px-5 py-2 text-white hover:bg-gray-600"
+            className="mr-4 rounded-full bg-gray-500 px-5 py-2 text-white hover:bg-gray-600"
             onClick={() => {
               props.setOpen(!props.open);
               props.setBook({
@@ -163,16 +163,16 @@ function Modal({ props }) {
               });
             }}
           >
-            Cancel
+            cancel
           </button>
           <button
-            className="rounded bg-blue-500 px-7 py-2 text-white hover:bg-blue-600"
+            className="rounded-full bg-blue-500 px-7 py-2 text-white hover:bg-blue-600"
             onClick={() => {
               props.saveBook();
               props.setIsSave(true);
             }}
           >
-            Save
+            save
           </button>
         </div>
       </div>
