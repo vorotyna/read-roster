@@ -4,7 +4,7 @@ function Navbar() {
   return (
     // Position: Sticky needs to be revised to position:fixed, but currently I cannot get it to work properly
     <nav className="sticky top-0 z-40 m-0 flex flex-row items-baseline justify-between border-b-2 bg-white pb-4 pt-10">
-      <section className="">
+      <section>
         <h1 className="cursor-pointer text-4xl">
           read<span className="c mx-0 font-bold text-[#ff293ef2]">roster</span>
         </h1>

@@ -44,7 +44,7 @@ function ExistingBook({ book, index }) {
                   updateAlerts={updateAlerts}
                 />
               </div>
-              <button className="mx-auto mb-6 w-3/5 items-center rounded-full bg-[#ff293ef2] py-1 text-center">
+              <button className="mx-auto mb-6 w-3/5 items-center rounded-full bg-[#ff293ef2] py-1 text-center hover:bg-[#ff293eb6]">
                 delete book
               </button>
             </div>
