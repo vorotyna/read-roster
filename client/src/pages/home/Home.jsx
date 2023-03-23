@@ -79,7 +79,7 @@ function Home() {
   }, [isSave]);
 
   return (
-    <div>
+    <div className="mx-28">
       {open ? (
         <>
           <Modal props={props} />
@@ -98,7 +98,7 @@ function Home() {
       ) : (
         <>
           <Navbar />
-          <h1 className="px-8 py-5 text-lg">
+          <h1 className="py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
             roster!
           </h1>
