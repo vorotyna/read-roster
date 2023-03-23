@@ -132,7 +132,7 @@ function Modal({ props }) {
                     <div className="m-0 mr-2">calendar</div>
                   </label>
                   <label className="m-0 flex flex-wrap items-center">
-                    Upload a photo
+                    Upload a cover photo
                     <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
                     <input type="file" onChange={props.onBookChange("photo")} />
                     <img
