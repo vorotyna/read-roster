@@ -1,7 +1,7 @@
 import React from "react";
 import PhoneInput from "react-phone-input-auto-format";
 
-function NewUser() {
+function NewUser({ props }) {
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 translate-y-12 rounded-lg py-10 px-2 shadow">
@@ -32,10 +32,19 @@ function NewUser() {
             />
             <input
               type="password"
-              className="mb-8 rounded-full"
+              className="mb-2 rounded-full"
               placeholder="Password *"
               required
             />
+            <p className="mb-8 pr-2 text-right text-xs font-normal">
+              Already a user?{" "}
+              <button
+                className="text-blue-600 hover:underline"
+                onClick={() => props.setRegister(false)}
+              >
+                Sign in
+              </button>
+            </p>
           </form>
         </section>
         <section className="flex flex-row items-end justify-center">

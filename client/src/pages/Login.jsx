@@ -17,7 +17,7 @@ function Login() {
           read<span className="c mx-0 font-bold text-[#ff293ef2]">roster</span>
         </h1>
       </section>
-      {register ? <NewUser /> : <OldUser props={props} />}
+      {register ? <NewUser props={props} /> : <OldUser props={props} />}
     </div>
   );
 }

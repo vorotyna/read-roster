@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/Navbar";
 import AddBook from "../../components/AddBook";
 import Modal from "../../components/Modal";
 import ExistingBook from "../../components/ExistingBook";
