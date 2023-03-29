@@ -12,7 +12,7 @@ function OldUser({ props }) {
           <form className="flex w-1/2 flex-col">
             <input
               type="text"
-              className="mb-4 rounded-full"
+              className="mb-2 rounded-full"
               placeholder="Enter email"
             />
             <input
