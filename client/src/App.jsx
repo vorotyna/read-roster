@@ -1,15 +1,21 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
+import useToken from "./hooks/useToken";
 
 function App() {
+  const { token, setToken } = useToken();
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              !token ? <Login setToken={setToken} /> : <Navigate to="/" />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
