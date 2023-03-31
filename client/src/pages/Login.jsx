@@ -3,15 +3,13 @@ import NewUser from "../components/NewUser";
 import OldUser from "../components/OldUser";
 import axios from "axios";
 
-function Login({ setToken, token }) {
+function Login({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
 
   // Function to handle the login of an old user
   const login = async (event) => {
-    event.preventDefault();
-    console.log("POOP");
     try {
       const token = await axios.post("http://localhost:8001/api/login", {
         email: email,

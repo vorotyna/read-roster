@@ -1,6 +1,19 @@
 import React from "react";
 
 function OldUser({ props }) {
+  // Function to handle 'enter' key press in the form
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      const form = event.target.form;
+      const index = Array.prototype.indexOf.call(form, event.target);
+
+      if (index === form.length - 3) {
+        event.preventDefault();
+        props.login();
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 translate-y-12 rounded-lg py-10 px-2 shadow">
@@ -9,7 +22,11 @@ function OldUser({ props }) {
           <p className="mb-8 text-center">Login to track your library books</p>
         </section>
         <section className="flex flex-col items-center">
-          <form className="flex w-1/2 flex-col" onSubmit={props.login}>
+          <form
+            className="flex w-1/2 flex-col"
+            onSubmit={props.login}
+            onKeyDown={handleKeyDown}
+          >
             <input
               type="text"
               value={props.email}
