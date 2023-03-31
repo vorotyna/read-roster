@@ -19,7 +19,13 @@ function App() {
           />
           <Route
             path="/home"
-            element={!token ? <Navigate to="/" /> : <Home token={token} />}
+            element={
+              !token ? (
+                <Navigate to="/" />
+              ) : (
+                <Home token={token} setToken={setToken} />
+              )
+            }
           />
         </Routes>
       </BrowserRouter>

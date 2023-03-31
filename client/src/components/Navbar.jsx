@@ -1,6 +1,10 @@
 import React from "react";
 
-function Navbar() {
+function Navbar({ setToken }) {
+  const handleLogout = () => {
+    setToken(null);
+  };
+
   return (
     // Position: Sticky needs to be revised to position:fixed, but currently I cannot get it to work properly
     <nav className="sticky top-0 z-40 m-0 flex flex-row items-baseline justify-between border-b-2 bg-white pb-4 pt-10">
@@ -12,9 +16,12 @@ function Navbar() {
       <section className="flex flex-row items-center">
         <h2 className="mr-20 cursor-pointer text-2xl">my books</h2>
         <h2 className="mr-20 cursor-pointer text-2xl">due dates</h2>
-        <h2 className="mr-0 cursor-pointer rounded-full bg-[#ff293ef2] px-8 py-1 text-2xl">
-          login
-        </h2>
+        <button
+          className="mr-0 rounded-full bg-[#ff293ef2] px-8 py-1 text-2xl hover:bg-[#ff293eb6]"
+          onClick={handleLogout}
+        >
+          logout
+        </button>
       </section>
     </nav>
   );

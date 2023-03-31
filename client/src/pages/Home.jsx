@@ -6,7 +6,7 @@ import ExistingBook from "../components/ExistingBook";
 import useBook from "../hooks/useBook";
 import axios from "axios";
 
-function Home({ token }) {
+function Home({ token, setToken }) {
   // Set state to open or close the Modal
   const [open, setOpen] = useState(false);
   // Set state to post the new book to DB
@@ -87,7 +87,7 @@ function Home({ token }) {
       {open ? (
         <>
           <Modal props={props} />
-          <Navbar />
+          <Navbar token={token} setToken={setToken} />
           <h1 className="px-8 py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
             roster!
@@ -101,7 +101,7 @@ function Home({ token }) {
         </>
       ) : (
         <>
-          <Navbar />
+          <Navbar token={token} setToken={setToken} />
           <h1 className="py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
             roster!
