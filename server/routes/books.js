@@ -9,7 +9,8 @@ const alerts = require('../db/queries/alerts');
 router
   .route('/')
   .get((req, res) => {
-    books.getAllBooksAndAlerts()
+    const token = req.headers.token;
+    books.getAllBooksAndAlertsByUserId(token)
       .then(data => {
         console.log(data);
         res.status(200).send(data);

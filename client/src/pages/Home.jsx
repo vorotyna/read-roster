@@ -59,7 +59,11 @@ function Home({ token }) {
   // Function the makes a get request when the page mounts or/and when isSave changes
   const handleRender = async () => {
     try {
-      const booksInfo = await axios.get("http://localhost:8001/api/books");
+      const booksInfo = await axios.get("http://localhost:8001/api/books", {
+        headers: {
+          Token: token,
+        },
+      });
       console.log(booksInfo.data);
       setPopulate(booksInfo.data);
       console.log("alerts", populate);

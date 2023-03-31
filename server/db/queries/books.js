@@ -7,6 +7,17 @@ const getAllBooksAndAlerts = async () => {
   return data.rows;
 };
 
+const getAllBooksAndAlertsByUserId = async (token) => {
+  const data = await db.query(
+    `SELECT * 
+    FROM books 
+    JOIN alerts ON books.id = book_id 
+    WHERE books.user_id = $1 AND alerts.user_id = $1;`,
+    [token]
+  );
+  return data.rows;
+};
+
 const getBooksByUserId = async (id) => {
   const data = await db.query(
     `SELECT * FROM books WHERE user_id = $1;`, [id]
@@ -24,4 +35,4 @@ const addBook = async (book) => {
   return data.rows[0];
 };
 
-module.exports = { getBooksByUserId, addBook, getAllBooksAndAlerts };
+module.exports = { getBooksByUserId, addBook, getAllBooksAndAlerts, getAllBooksAndAlertsByUserId };
