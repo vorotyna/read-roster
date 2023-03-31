@@ -1,13 +1,36 @@
 import React, { useState } from "react";
 import NewUser from "../components/NewUser";
 import OldUser from "../components/OldUser";
+import axios from "axios";
 
-function Login() {
+function Login({ setToken, token }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
+
+  // Function to handle the login of an old user
+  const login = async (event) => {
+    event.preventDefault();
+    console.log("POOP");
+    try {
+      const token = await axios.post("http://localhost:8001/api/login", {
+        email: email,
+        password: password,
+      });
+      setToken(token.data.token);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   let props = {
     setRegister,
     register,
+    setEmail,
+    setPassword,
+    email,
+    password,
+    login,
   };
 
   return (

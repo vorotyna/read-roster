@@ -9,29 +9,40 @@ function OldUser({ props }) {
           <p className="mb-8 text-center">Login to track your library books</p>
         </section>
         <section className="flex flex-col items-center">
-          <form className="flex w-1/2 flex-col">
+          <form className="flex w-1/2 flex-col" onSubmit={props.login}>
             <input
               type="text"
+              value={props.email}
               className="mb-2 rounded-full"
               placeholder="Enter email"
+              required
+              onChange={(event) => {
+                props.setEmail(event.target.value);
+              }}
             />
             <input
               type="password"
+              value={props.password}
               className="mb-2 rounded-full"
               placeholder="Enter password"
+              required
+              onChange={(event) => {
+                props.setPassword(event.target.value);
+              }}
             />
             <button
-              className="mb-8 pr-2 text-right text-xs font-normal text-blue-600 hover:underline"
+              className="mb-6 pr-2 text-right text-xs font-normal text-blue-600 hover:underline"
               onClick={() => props.setRegister(true)}
             >
               Create an account
             </button>
+            <button
+              className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]"
+              onClick={props.login}
+            >
+              login
+            </button>
           </form>
-        </section>
-        <section className="flex flex-row items-end justify-center">
-          <button className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]">
-            login
-          </button>
         </section>
       </div>
     </div>

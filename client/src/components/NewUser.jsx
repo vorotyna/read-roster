@@ -36,7 +36,7 @@ function NewUser({ props }) {
               placeholder="Password *"
               required
             />
-            <p className="mb-8 pr-2 text-right text-xs font-normal">
+            <p className="mb-6 pr-2 text-right text-xs font-normal">
               Already a user?{" "}
               <button
                 className="text-blue-600 hover:underline"

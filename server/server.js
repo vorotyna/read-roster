@@ -15,10 +15,12 @@ app.use(cors());
 // Routers
 const userRouter = require("./routes/users");
 const booksRouter = require("./routes/books");
+const loginRouter = require("./routes/login");
 
 // Routes
 app.use("/api/users", userRouter);
 app.use("/api/books", booksRouter);
+app.use("/api/login", loginRouter);
 
 // Home Route
 app.get("/", (req, res) => {

@@ -9,6 +9,17 @@ INSERT INTO users (
   'liso@piso.com',
   '1111111111'
 );
+INSERT INTO users (
+  first_name,
+  password,
+  email,
+  phone_number
+) VALUES (
+  'Luko',
+  '123',
+  'luko@puko.com',
+  '1111111112'
+);
 
 
 INSERT INTO books (user_id, title, author, location, photo) VALUES (1, 'A Thousand Splendid Suns', 'Khaled Hosseini', 'Liso Library', 'https://productimages.worldofbooks.com/074758589X.jpg');

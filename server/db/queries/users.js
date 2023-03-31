@@ -23,7 +23,7 @@ const addUser = (first_name, email, password, phone_number) => {
 };
 
 const getUserByLoginDetails = async (email, password) => {
-  const data = db.query(
+  const data = await db.query(
     `SELECT * FROM users 
     WHERE email = $1 AND password = $2;`,
     [email, password]);
