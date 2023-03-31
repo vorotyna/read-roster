@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
-import AddBook from "../../components/AddBook";
-import Modal from "../../components/Modal";
-import ExistingBook from "../../components/ExistingBook";
-import useBook from "../../hooks/useBook";
+import Navbar from "../components/Navbar";
+import AddBook from "../components/AddBook";
+import Modal from "../components/Modal";
+import ExistingBook from "../components/ExistingBook";
+import useBook from "../hooks/useBook";
 import axios from "axios";
 
-function Home() {
+function Home({ token }) {
   // Set state to open or close the Modal
   const [open, setOpen] = useState(false);
   // Set state to post the new book to DB
