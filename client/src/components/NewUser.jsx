@@ -18,23 +18,36 @@ function NewUser({ props }) {
               className="mb-2 rounded-full"
               placeholder="Name *"
               required
+              onChange={(event) => {
+                props.setName(event.target.value);
+              }}
             />
             <input
               type="text"
               className="mb-2 rounded-full"
               placeholder="Email *"
               required
+              onChange={(event) => {
+                props.setEmail(event.target.value);
+                console.log(props.email);
+              }}
             />
             <PhoneInput
               className="mb-2 rounded-full"
               placeholder="Phone number *"
               required
+              onChange={(event) => {
+                props.setPhone(event.target.value);
+              }}
             />
             <input
               type="password"
               className="mb-2 rounded-full"
               placeholder="Password *"
               required
+              onChange={(event) => {
+                props.setPassword(event.target.value);
+              }}
             />
             <p className="mb-6 pr-2 text-right text-xs font-normal">
               Already a user?{" "}

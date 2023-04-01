@@ -4,7 +4,9 @@ import OldUser from "../components/OldUser";
 import axios from "axios";
 
 function Login({ setToken }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
 
@@ -29,6 +31,8 @@ function Login({ setToken }) {
     email,
     password,
     login,
+    setName,
+    setPhone,
   };
 
   return (
