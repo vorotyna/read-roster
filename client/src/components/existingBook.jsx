@@ -1,13 +1,29 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import axios from "axios";
 
 function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
 
-  const updateAlerts = (alertType) => {
+  const updateAlerts = async (alertType) => {
     book[alertType] = !book[alertType];
-    // PUT REQUEST
+    console.log(book);
+    // Function to make a PUT request to update alerts
+    try {
+      const booksInfo = await axios.put(
+        "http://localhost:8001/api/alerts/update_alert",
+        {
+          book_id: book.book_id,
+          SMS: book.sms,
+          calendar: book.calendar,
+          email: book.email,
+        }
+      );
+      console.log("BooksInfo", booksInfo.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

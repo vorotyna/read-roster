@@ -11,13 +11,15 @@ const addAlerts = async (alert) => {
 };
 
 const updateAlerts = async (alert) => {
+  console.log(alert);
   const data = await db.query(
-    `UPDATE alerts (book_id, user_id, due_date, SMS, email, calendar)
+    `UPDATE alerts
     SET SMS = $1, email = $2, calendar = $3
     WHERE book_id = $4
     RETURNING *;`,
-    [alert.book_id, alert.SMS, alert.email, alert.calendar]
+    [alert.SMS, alert.email, alert.calendar, alert.book_id]
   );
+  return data.rows[0];
 };
 
 module.exports = { addAlerts, updateAlerts };
