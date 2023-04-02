@@ -2,6 +2,11 @@ import React from "react";
 import PhoneInput from "react-phone-input-auto-format";
 
 function NewUser({ props }) {
+  // Function to handle phone number state
+  const onChange = (phoneNumber) => {
+    props.setPhone(phoneNumber);
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 translate-y-12 rounded-lg py-10 px-2 shadow">
@@ -29,16 +34,13 @@ function NewUser({ props }) {
               required
               onChange={(event) => {
                 props.setEmail(event.target.value);
-                console.log(props.email);
               }}
             />
             <PhoneInput
               className="mb-2 rounded-full"
               placeholder="Phone number *"
               required
-              onChange={(event) => {
-                props.setPhone(event.target.value);
-              }}
+              onChange={onChange}
             />
             <input
               type="password"
@@ -61,7 +63,10 @@ function NewUser({ props }) {
           </form>
         </section>
         <section className="flex flex-row items-end justify-center">
-          <button className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]">
+          <button
+            className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]"
+            onClick={props.login}
+          >
             register
           </button>
         </section>

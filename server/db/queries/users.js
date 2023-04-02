@@ -13,13 +13,14 @@ const getUserById = async (id) => {
   return data.rows;
 };
 
-const addUser = (first_name, email, password, phone_number) => {
-  return db.query(
+const addUser = async (name, email, password, phone) => {
+  const data = await db.query(
     `INSERT INTO users (first_name, email, password, phone_number) 
     VALUES ($1, $2, $3, $4) 
     RETURNING *;`,
-    [first_name, email, password, phone_number]
+    [name, email, password, phone]
   );
+  return data.rows[0];
 };
 
 const getUserByLoginDetails = async (email, password) => {

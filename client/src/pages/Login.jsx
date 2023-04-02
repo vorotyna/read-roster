@@ -10,14 +10,24 @@ function Login({ setToken }) {
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
 
-  // Function to handle the login of an old user
+  // Function to handle the login of an old or new user
   const login = async (event) => {
     try {
-      const token = await axios.post("http://localhost:8001/api/login", {
-        email: email,
-        password: password,
-      });
-      setToken(token.data.token);
+      if (name && email && phone && password) {
+        const token = await axios.post("http://localhost:8001/api/login/new", {
+          name: name,
+          email: email,
+          phone: phone,
+          password: password,
+        });
+        setToken(token.data.token);
+      } else {
+        const token = await axios.post("http://localhost:8001/api/login", {
+          email: email,
+          password: password,
+        });
+        setToken(token.data.token);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -33,6 +43,7 @@ function Login({ setToken }) {
     login,
     setName,
     setPhone,
+    phone,
   };
 
   return (
