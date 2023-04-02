@@ -10,4 +10,14 @@ const addAlerts = async (alert) => {
   return data.rows[0];
 };
 
-module.exports = { addAlerts };
+const updateAlerts = async (alert) => {
+  const data = await db.query(
+    `UPDATE alerts (book_id, user_id, due_date, SMS, email, calendar)
+    SET SMS = $1, email = $2, calendar = $3
+    WHERE book_id = $4
+    RETURNING *;`,
+    [alert.book_id, alert.SMS, alert.email, alert.calendar]
+  );
+};
+
+module.exports = { addAlerts, updateAlerts };
