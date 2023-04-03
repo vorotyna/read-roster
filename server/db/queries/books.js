@@ -35,13 +35,13 @@ const addBook = async (book) => {
   return data.rows[0];
 };
 
-const deleteBook = (book_id) => {
+const deleteBook = (book) => {
   return db.query(
     `DELETE FROM books
     USING alerts ON books.id = alerts.book_id
     WHERE books.id = $1
     RETURNING *;`
-    [book_id]
+    [book.book_id]
   );
 };
 

@@ -26,7 +26,15 @@ function ExistingBook({ book, index }) {
   };
 
   // Function that makes a delete request to delete an existing book
-  const handleDelete = async () => {};
+  const handleDelete = async () => {
+    try {
+      await axios.delete("http://localhost:8001/api/books/delete", {
+        book_id: book.id,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="m-0">
