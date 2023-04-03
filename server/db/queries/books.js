@@ -35,4 +35,15 @@ const addBook = async (book) => {
   return data.rows[0];
 };
 
-module.exports = { getBooksByUserId, addBook, getAllBooksAndAlerts, getAllBooksAndAlertsByUserId };
+const deleteBook = (book_id) => {
+  return db.query(
+    `DELETE FROM books
+    USING alerts ON books.id = alerts.book_id
+    WHERE books.id = $1
+    RETURNING *;`
+    [book_id]
+  );
+};
+
+
+module.exports = { getBooksByUserId, addBook, getAllBooksAndAlerts, getAllBooksAndAlertsByUserId, deleteBook };
