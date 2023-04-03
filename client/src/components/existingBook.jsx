@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import axios from "axios";
 
-function ExistingBook({ book, index }) {
+function ExistingBook({ book, index, handleRender }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
 
@@ -27,9 +27,9 @@ function ExistingBook({ book, index }) {
 
   // Function that makes a delete request to delete an existing book
   const handleDelete = async () => {
-    console.log("BOOK_ID PARAM", book.id);
     try {
       await axios.delete(`http://localhost:8001/api/books/${book.id}`);
+      handleRender();
     } catch (error) {
       console.error(error);
     }

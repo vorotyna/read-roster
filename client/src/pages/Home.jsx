@@ -95,7 +95,11 @@ function Home({ token, setToken }) {
           <div className="grid grid-cols-4 gap-4 overflow-y-auto">
             <AddBook setOpen={setOpen} open={open} />
             {populate.map((book, index) => (
-              <ExistingBook index={index} book={book} />
+              <ExistingBook
+                index={index}
+                book={book}
+                handleRender={handleRender}
+              />
             ))}
           </div>
         </>
@@ -109,7 +113,12 @@ function Home({ token, setToken }) {
           <div className="sm:gris-cols-1 grid gap-4 overflow-y-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <AddBook setOpen={setOpen} open={open} />
             {populate.map((book, index) => (
-              <ExistingBook index={index} book={book} key={index} />
+              <ExistingBook
+                index={index}
+                book={book}
+                key={index}
+                handleRender={handleRender}
+              />
             ))}
           </div>
         </>

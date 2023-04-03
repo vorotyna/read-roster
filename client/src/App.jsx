@@ -14,7 +14,7 @@ function App() {
           <Route
             path="/"
             element={
-              !token || token === "null" ? (
+              !token || token === null || token === "null" ? (
                 <Login setToken={setToken} />
               ) : (
                 <Navigate to="/home" />
