@@ -6,10 +6,9 @@ function ExistingBook({ book, index }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
 
+  // Function to make a PUT request to update alerts
   const updateAlerts = async (alertType) => {
     book[alertType] = !book[alertType];
-    console.log(book);
-    // Function to make a PUT request to update alerts
     try {
       const booksInfo = await axios.put(
         "http://localhost:8001/api/alerts/update_alert",
@@ -25,6 +24,9 @@ function ExistingBook({ book, index }) {
       console.error(error);
     }
   };
+
+  // Function that makes a delete request to delete an existing book
+  const handleDelete = async () => {};
 
   return (
     <div className="m-0">
@@ -60,7 +62,10 @@ function ExistingBook({ book, index }) {
                   updateAlerts={updateAlerts}
                 />
               </div>
-              <button className="mx-auto mb-6 w-3/5 items-center rounded-full bg-[#ff293ef2] py-1 text-center hover:bg-[#ff293eb6]">
+              <button
+                className="mx-auto mb-6 w-3/5 items-center rounded-full bg-[#ff293ef2] py-1 text-center hover:bg-[#ff293eb6]"
+                onClick={handleDelete}
+              >
                 delete book
               </button>
             </div>
