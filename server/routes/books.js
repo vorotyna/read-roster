@@ -72,9 +72,18 @@ router
   });
 
 router
-  .route('/delete')
+  .route('/:id')
   .delete((req, res) => {
-
+    const id = parseInt(req.params.id);
+    books.deleteBookById(id)
+      .then((data) => {
+        console.log("DATA", data);
+        res.status(200).send(`Book deleted with id: ${id}`);
+      })
+      .catch(error => {
+        console.error(error);
+        res.status(500).send(error);
+      });
   });
 
 module.exports = router;
