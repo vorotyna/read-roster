@@ -64,9 +64,7 @@ function Home({ token, setToken }) {
           Token: token,
         },
       });
-      console.log(booksInfo.data);
       setPopulate(booksInfo.data);
-      console.log("alerts", populate);
     } catch (error) {
       console.error(error);
     }

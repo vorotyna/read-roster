@@ -12,7 +12,6 @@ router
     const token = req.headers.token;
     books.getAllBooksAndAlertsByUserId(token)
       .then(data => {
-        console.log(data);
         res.status(200).send(data);
       })
       .catch(error => {
@@ -44,7 +43,6 @@ router
 
     books.addBook(book)
       .then(data => {
-        console.log(data);
         const book_id = data.id;
 
         let alert = {
@@ -76,8 +74,7 @@ router
   .delete((req, res) => {
     const id = parseInt(req.params.id);
     books.deleteBookById(id)
-      .then((data) => {
-        console.log("DATA", data);
+      .then(data => {
         res.status(200).send(`Book deleted with id: ${id}`);
       })
       .catch(error => {
