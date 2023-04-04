@@ -16,8 +16,6 @@ function Navbar() {
         </h1>
       </section>
       <section className="flex flex-row items-center">
-        <h2 className="mr-20 cursor-pointer text-2xl">my books</h2>
-        <h2 className="mr-20 cursor-pointer text-2xl">due dates</h2>
         <button
           className="mr-0 rounded-full bg-[#ff293ef2] px-8 py-1 text-2xl hover:bg-[#ff293eb6]"
           onClick={handleLogout}
