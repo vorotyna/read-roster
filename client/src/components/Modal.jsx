@@ -32,20 +32,26 @@ function Modal({ props }) {
                     onChange={props.onBookChange("author")}
                   />
                 </label>
-                <label className="m-0 mb-2 block">
-                  Library location
-                  <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
-                  <input
-                    type="text"
-                    name="library"
-                    className="w-full rounded"
-                    onChange={props.onBookChange("location")}
-                  />
-                </label>
+                <div className="flex flex-row justify-between">
+                  <label className="m-0 block w-1/2 pr-1">
+                    Due date <span className="m-0 text-[#ff293ef2]">*</span>
+                    <input type="date" name="due" className="w-full rounded" />
+                  </label>
+                  <label className="m-0 mb-2 block w-1/2 pl-1">
+                    Location
+                    <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
+                    <input
+                      type="text"
+                      name="library"
+                      className="w-full rounded"
+                      onChange={props.onBookChange("location")}
+                    />
+                  </label>
+                </div>
                 <label className="m-0 block">
-                  Due date <span className="m-0 text-[#ff293ef2]">*</span>
+                  Set alert time
                   <input
-                    type="date"
+                    type="datetime-local"
                     name="due"
                     className="w-full rounded"
                     onChange={props.onBookChange("due_date")}
@@ -146,7 +152,7 @@ function Modal({ props }) {
         </div>
         <div className="mb-6 mt-2 flex items-center justify-center">
           <button
-            className="mr-4 rounded-full bg-gray-500 px-5 py-2 text-white hover:bg-gray-600"
+            className="mr-4 rounded-full bg-gray-500 px-7 py-2 text-white hover:bg-gray-600"
             onClick={() => {
               props.setOpen(!props.open);
               props.setBook({
@@ -164,7 +170,7 @@ function Modal({ props }) {
             cancel
           </button>
           <button
-            className="rounded-full bg-blue-500 px-7 py-2 text-white hover:bg-blue-600"
+            className="rounded-full bg-blue-500 px-9 py-2 text-white hover:bg-blue-600"
             onClick={() => {
               props.saveBook();
               props.setIsSave(true);
