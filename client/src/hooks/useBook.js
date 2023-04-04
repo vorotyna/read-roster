@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../contexts/userContext';
 
 function useBook() {
+  const { token } = useContext(UserContext);
   const [book, setBook] = useState({
+    user_id: token,
     title: null,
     author: null,
     location: null,

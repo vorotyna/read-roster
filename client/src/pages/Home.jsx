@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import AddBook from "../components/AddBook";
 import Modal from "../components/Modal";
 import ExistingBook from "../components/ExistingBook";
 import useBook from "../hooks/useBook";
 import axios from "axios";
+import { UserContext } from "../contexts/userContext";
 
-function Home({ token, setToken }) {
+function Home() {
   // Set state to open or close the Modal
   const [open, setOpen] = useState(false);
   // Set state to post the new book to DB
@@ -16,6 +17,9 @@ function Home({ token, setToken }) {
 
   // Custom hook which handles the new book's state
   const { book, onBookChange, saveBook, setBook } = useBook();
+
+  // Import token context
+  const { token } = useContext(UserContext);
 
   // Props object that gets passed in to Modal
   let props = {
@@ -42,6 +46,8 @@ function Home({ token, setToken }) {
       setIsSave(false);
       setOpen(false);
       setBook({
+        user_id: token,
+        alert_time: "",
         title: null,
         author: null,
         location: null,
@@ -83,7 +89,7 @@ function Home({ token, setToken }) {
       {open ? (
         <>
           <Modal props={props} />
-          <Navbar token={token} setToken={setToken} />
+          <Navbar />
           <h1 className="px-8 py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
             roster!
@@ -101,7 +107,7 @@ function Home({ token, setToken }) {
         </>
       ) : (
         <>
-          <Navbar token={token} setToken={setToken} />
+          <Navbar />
           <h1 className="py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
             roster!

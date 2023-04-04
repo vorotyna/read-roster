@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import useToken from "./hooks/useToken";
+import { UserContext } from "./contexts/userContext";
 
 function App() {
-  const { token, setToken } = useToken();
-
+  const { token } = useContext(UserContext);
   return (
     <>
       <BrowserRouter>
@@ -15,7 +14,7 @@ function App() {
             path="/"
             element={
               !token || token === null || token === "null" ? (
-                <Login setToken={setToken} />
+                <Login />
               ) : (
                 <Navigate to="/home" />
               )
@@ -24,11 +23,7 @@ function App() {
           <Route
             path="/home"
             element={
-              !token || token === "null" ? (
-                <Navigate to="/" />
-              ) : (
-                <Home token={token} setToken={setToken} />
-              )
+              !token || token === "null" ? <Navigate to="/" /> : <Home />
             }
           />
         </Routes>

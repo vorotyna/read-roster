@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import NewUser from "../components/NewUser";
 import OldUser from "../components/OldUser";
 import axios from "axios";
+import { UserContext } from "../contexts/userContext";
 
-function Login({ setToken }) {
+function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
-
+  const { updateToken } = useContext(UserContext);
   // Function to handle the login of an old or new user
   const login = async (event) => {
     try {
@@ -20,13 +21,13 @@ function Login({ setToken }) {
           phone: phone,
           password: password,
         });
-        setToken(token.data.token);
+        updateToken(token.data.token);
       } else {
         const token = await axios.post("http://localhost:8001/api/login", {
           email: email,
           password: password,
         });
-        setToken(token.data.token);
+        updateToken(token.data.token);
       }
     } catch (error) {
       console.error(error);

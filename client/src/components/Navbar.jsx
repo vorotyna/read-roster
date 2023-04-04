@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/userContext";
 
-function Navbar({ setToken }) {
+function Navbar() {
+  const { removeToken } = useContext(UserContext);
   const handleLogout = () => {
-    setToken(null);
+    removeToken(null);
   };
 
   return (

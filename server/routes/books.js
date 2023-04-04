@@ -29,6 +29,7 @@ router
     const author = req.body.author;
     const location = req.body.location;
     const due_date = req.body.due_date;
+    const alert_time = req.body.alert_time;
     const SMS = req.body.SMS;
     const email = req.body.email;
     const calendar = req.body.calendar;
@@ -50,6 +51,7 @@ router
           book_id,
           user_id,
           due_date,
+          alert_time,
           SMS,
           email,
           calendar
