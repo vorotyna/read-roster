@@ -35,7 +35,12 @@ function Modal({ props }) {
                 <div className="flex flex-row justify-between">
                   <label className="m-0 block w-1/2 pr-1">
                     Due date <span className="m-0 text-[#ff293ef2]">*</span>
-                    <input type="date" name="due" className="w-full rounded" />
+                    <input
+                      type="date"
+                      name="due"
+                      className="w-full rounded"
+                      onChange={props.onBookChange("due_date")}
+                    />
                   </label>
                   <label className="m-0 mb-2 block w-1/2 pl-1">
                     Location
@@ -49,19 +54,19 @@ function Modal({ props }) {
                   </label>
                 </div>
                 <label className="m-0 block">
-                  Set alert time
+                  Set alert time <span className="m-0 text-[#ff293ef2]">*</span>
                   <input
                     type="datetime-local"
                     name="due"
                     className="w-full rounded"
-                    onChange={props.onBookChange("due_date")}
+                    onChange={props.onBookChange("alert")}
                   />
                 </label>
               </form>
             </section>
             <section className="ml-4 mt-4 w-full sm:mt-0 sm:w-1/2">
               <div className="m-0 flex flex-col">
-                <label className="m-0">Due date alert methods</label>
+                <label className="m-0">Due date alert methods </label>
                 <label className="m-0 mb-2 flex cursor-pointer items-center">
                   <div className="relative m-0 ">
                     <input

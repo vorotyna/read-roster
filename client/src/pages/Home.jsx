@@ -31,9 +31,7 @@ function Home({ token, setToken }) {
 
   // Function that makes a post request to save the book when none of the input fields are empty
   const handleSave = async () => {
-    const isNotNull = Object.values(book).every(
-      (param) => param !== null && param !== ""
-    ); // Need to add a default photo URL to books, otherwise need to make it not null
+    const isNotNull = Object.values(book).every((param) => param !== null);
 
     if (isNotNull) {
       try {

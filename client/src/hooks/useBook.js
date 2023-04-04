@@ -6,6 +6,7 @@ function useBook() {
     author: null,
     location: null,
     due_date: null,
+    alert_time: "",
     email: false,
     SMS: false,
     calendar: false,
@@ -25,6 +26,9 @@ function useBook() {
         break;
       case "due_date":
         setBook({ ...book, due_date: event.target.value });
+        break;
+      case "alert":
+        setBook({ ...book, alert_time: event.target.value });
         break;
       case "email":
         setBook({ ...book, email: !book.email });
