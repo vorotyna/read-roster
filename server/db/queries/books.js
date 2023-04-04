@@ -12,7 +12,10 @@ const getAllBooksAndAlertsByUserId = async (token) => {
     `SELECT * 
     FROM books 
     JOIN alerts ON books.id = book_id 
-    WHERE books.user_id = $1 AND alerts.user_id = $1;`,
+    WHERE books.user_id = $1 
+    AND alerts.user_id = $1
+    AND alerts.due_date >= CURRENT_DATE
+    ORDER BY alerts.due_date ASC;`,
     [token]
   );
   return data.rows;

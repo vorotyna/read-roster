@@ -10,6 +10,7 @@ router
   .route('/')
   .get((req, res) => {
     const token = req.headers.token;
+    console.log(token);
     books.getAllBooksAndAlertsByUserId(token)
       .then(data => {
         res.status(200).send(data);
