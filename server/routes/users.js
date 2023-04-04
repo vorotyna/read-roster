@@ -7,7 +7,7 @@ const db = require('../db/queries/users');
 router.get('/', (req, res) => {
   db.getAllUsers()
     .then(data => {
-      res.status(204).send(data);
+      res.status(200).send(data);
     })
     .catch(error => {
       res.status(500).send(error);
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
   db.addUser()
     .then(() => {
-      res.status(204).send(data);
+      res.status(200).send(data);
     })
     .catch(error => {
       res.status(500).send(error);
@@ -29,7 +29,7 @@ router.post('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.getUserById(req.params.id)
     .then(data => {
-      res.status(204).send(data);
+      res.status(200).send(data);
     })
     .catch(error => {
       res.status(500).send(error);
