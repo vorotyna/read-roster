@@ -9,6 +9,19 @@ function NewUser({ props }) {
     props.setPhone(phoneNumber);
   };
 
+  // Function to handle 'enter' key press in the form
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      const form = event.target.form;
+      const index = Array.prototype.indexOf.call(form, event.target);
+
+      if (index === form.length - 2) {
+        event.preventDefault();
+        props.login();
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 translate-y-12 rounded-lg py-10 px-2 shadow">
@@ -19,7 +32,7 @@ function NewUser({ props }) {
           </p>
         </section>
         <section className="flex flex-col items-center">
-          <form className="flex w-1/2 flex-col">
+          <form className="flex w-1/2 flex-col" onKeyDown={handleKeyDown}>
             <input
               type="text"
               className="mb-2 rounded-full"
