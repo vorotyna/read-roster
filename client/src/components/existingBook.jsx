@@ -47,7 +47,7 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
               className=" absolute z-0 m-0 h-72 w-64 rounded-xl object-cover opacity-50 blur-sm"
             ></img>
             <div className="relative m-0 flex h-full w-full flex-col items-center justify-around rounded-xl bg-cover bg-center">
-              <h1 className="mt-4 font-semibold">Current alert preferences:</h1>
+              <h1 className="mb-2 mt-4 font-semibold">Alert Preferences:</h1>
               <div className="m-6 my-0 px-6">
                 <Toggle
                   buttonTitle={"email"}
@@ -72,7 +72,7 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
                 />
               </div>
               <button
-                className="mx-auto mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#d42133]"
+                className="mx-auto mt-4 mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#d42133]"
                 onClick={handleDelete}
               >
                 Delete
