@@ -17,10 +17,10 @@ function Navbar() {
       </section>
       <section className="flex flex-row items-center">
         <button
-          className="mr-0 rounded-full bg-[#ff293ef2] px-8 py-1 text-2xl hover:bg-[#ff293eb6]"
+          className="mr-0 rounded-full bg-[#ff293ef2] px-8 py-2 text-2xl hover:bg-[#d42133]"
           onClick={handleLogout}
         >
-          logout
+          Logout
         </button>
       </section>
     </nav>

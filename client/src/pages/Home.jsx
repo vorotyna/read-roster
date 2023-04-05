@@ -6,6 +6,7 @@ import ExistingBook from "../components/ExistingBook";
 import useBook from "../hooks/useBook";
 import axios from "axios";
 import { UserContext } from "../contexts/userContext";
+import { saveCalendarEvent } from "../utils";
 
 function Home() {
   // Set state to open or close the Modal
@@ -126,6 +127,7 @@ function Home() {
                 book={book}
                 key={index}
                 handleRender={handleRender}
+                saveCalendarEvent={saveCalendarEvent}
               />
             ))}
           </div>

@@ -3,7 +3,7 @@ import Toggle from "./Toggle";
 import axios from "axios";
 import Button from "./Button";
 
-function ExistingBook({ book, index, handleRender }) {
+function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
   // Set state on hover so that the card flips
   const [flip, setFlip] = useState(false);
 
@@ -62,13 +62,15 @@ function ExistingBook({ book, index, handleRender }) {
                 />
                 <Button
                   buttonTitle={"Calendar"}
+                  book={book}
+                  onClick={saveCalendarEvent}
                   className={
                     "m-0 flex w-full cursor-pointer items-center rounded bg-blue-200 p-2 px-4 hover:bg-blue-400"
                   }
                 />
               </div>
               <button
-                className="mx-auto mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#ff293eb6]"
+                className="mx-auto mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#d42133]"
                 onClick={handleDelete}
               >
                 Delete
