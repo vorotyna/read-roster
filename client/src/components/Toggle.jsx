@@ -9,7 +9,7 @@ function Toggle({ buttonTitle, book, updateAlerts }) {
   };
 
   return (
-    <>
+    <div className="m-0 mb-2 flex items-center">
       <div className="relative m-0 ">
         <input
           type="checkbox"
@@ -33,7 +33,7 @@ function Toggle({ buttonTitle, book, updateAlerts }) {
         ></div>
       </div>
       <div className="m-0 mr-2">{buttonTitle}</div>
-    </>
+    </div>
   );
 }
 

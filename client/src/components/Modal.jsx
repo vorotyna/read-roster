@@ -139,6 +139,7 @@ function Modal({ props }) {
               buttonTitle={"Calendar Event"}
               onClick={saveCalendarEvent}
               book={props.book}
+              className={"mb-3 rounded bg-blue-200 p-2 px-10 hover:bg-blue-400"}
             />
           ) : (
             <></>
