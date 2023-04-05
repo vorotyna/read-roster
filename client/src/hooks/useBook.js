@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../contexts/userContext';
 
+// This custom hook is for set state of the book and saving book
+
 function useBook() {
   const { token } = useContext(UserContext);
   const [book, setBook] = useState({
@@ -15,6 +17,7 @@ function useBook() {
     photo: null,
   });
 
+  // Function updates the book state when a specific case changes
   const onBookChange = (modifier) => (event) => {
     switch (modifier) {
       case "title":
@@ -47,9 +50,9 @@ function useBook() {
     }
   };
 
+  // Function saves book
   const saveBook = () => {
     setBook({ ...book });
-    console.log(book);
   };
 
   return {

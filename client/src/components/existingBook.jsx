@@ -3,8 +3,10 @@ import Toggle from "./Toggle";
 import axios from "axios";
 import Button from "./Button";
 
+// This ExistingBook component populates the Home page with the existing books in the DB for a user
+
 function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
-  // Set state on hover so that the card flips
+  // Set state on hover so that the card flips to show alerts
   const [flip, setFlip] = useState(false);
 
   // Function to make a PUT request to update alerts

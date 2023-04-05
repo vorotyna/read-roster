@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
+// This Button component is used for the calendar event download
+
 function Button({ buttonTitle, onClick, book, className }) {
   return (
     <button className={className} onClick={() => onClick(book)}>

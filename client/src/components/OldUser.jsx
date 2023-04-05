@@ -1,5 +1,7 @@
 import React from "react";
 
+// This OldUser component is used to login an existing user
+
 function OldUser({ props }) {
   // Function to handle 'enter' key press in the form
   const handleKeyDown = (event) => {

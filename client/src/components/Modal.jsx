@@ -2,6 +2,8 @@ import React from "react";
 import Button from "./Button";
 import { saveCalendarEvent } from "../utils";
 
+// This Modal component is revealed when a user clicks to add a new book
+
 function Modal({ props }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">

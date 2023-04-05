@@ -1,6 +1,8 @@
 import React from "react";
 import PhoneInput from "react-phone-input-auto-format";
 
+// This NewUser component is used when a new user registers
+
 function NewUser({ props }) {
   // Function to handle phone number state
   const onChange = (phoneNumber) => {

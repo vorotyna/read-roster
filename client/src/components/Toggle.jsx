@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
+// This Toggle component is to build a toggle for alerts
+
 function Toggle({ buttonTitle, book, updateAlerts, name }) {
+  // Set the toggle state as the value of the appropriate alert name
   const [toggle, setToggle] = useState(book[buttonTitle]);
 
+  // Function that handles a user changing alert preferences in ExistingBook
   const updateToggle = () => {
     setToggle(!toggle);
     updateAlerts(buttonTitle);

@@ -1,5 +1,7 @@
 import React, { createContext, useState } from 'react';
 
+// This UserContext is for storing the token value, updating token, or removing token from memory
+
 export const UserContext = createContext(null);
 
 export const UserContextProvider = ({ children }) => {
