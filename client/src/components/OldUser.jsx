@@ -16,6 +16,13 @@ function OldUser({ props }) {
     }
   };
 
+  // Function to clear fields when switching back from registration
+  const clearFields = () => {
+    props.setRegister(true);
+    props.setEmail("");
+    props.setPassword("");
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-1/2 translate-y-12 rounded-lg py-10 px-2 shadow">
@@ -51,7 +58,7 @@ function OldUser({ props }) {
             />
             <button
               className="mb-6 pr-2 text-right text-xs font-normal text-blue-600 hover:underline"
-              onClick={() => props.setRegister(true)}
+              onClick={clearFields}
             >
               Create an account
             </button>
