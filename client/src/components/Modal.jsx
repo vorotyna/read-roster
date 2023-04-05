@@ -160,7 +160,7 @@ function Modal({ props }) {
                 });
               }}
             >
-              cancel
+              Cancel
             </button>
             <button
               className="rounded-full bg-blue-500 px-9 py-2 text-white hover:bg-blue-600"
@@ -169,7 +169,7 @@ function Modal({ props }) {
                 props.setIsSave(true);
               }}
             >
-              save
+              Save
             </button>
           </section>
         </div>
