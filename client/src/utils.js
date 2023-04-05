@@ -4,10 +4,9 @@ import { createEvent } from "ics";
 // Function that handle onClick for calendar button
 export const saveCalendarEvent = (book) => {
   let startDate = book.due_date.split("T")[0].split("-").map(Number);
-  console.log(startDate);
   const calendarObj = {
-    title: `${book.title} due date!`,
-    description: "",
+    title: `‼️ ${book.title} due date`,
+    description: "This is a calendar alert from readroster.",
     start: startDate,
     end: startDate,
     location: book.location,

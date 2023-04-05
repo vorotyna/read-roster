@@ -134,7 +134,9 @@ function Modal({ props }) {
           </div>
         </div>
         <div className="mb-6 mt-2 flex flex-col items-center justify-center">
-          {Object.values(props.book).every((param) => param !== null) ? (
+          {props.book.title !== null &&
+          props.book.location !== null &&
+          props.book.due_date !== null ? (
             <Button
               buttonTitle={"Calendar Event"}
               onClick={saveCalendarEvent}
