@@ -64,10 +64,10 @@ function NewUser({ props }) {
         </section>
         <section className="flex flex-row items-end justify-center">
           <button
-            className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]"
+            className="w-1/2 rounded-full bg-[#ff293ef2] py-2 text-white hover:bg-[#e32b3d]"
             onClick={props.login}
           >
-            register
+            Register
           </button>
         </section>
       </div>

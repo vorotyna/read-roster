@@ -54,10 +54,10 @@ function OldUser({ props }) {
               Create an account
             </button>
             <button
-              className="rounded-full bg-[#ff293ef2] px-10 py-2 text-white hover:bg-[#ff293eb6]"
+              className="rounded-full bg-[#ff293ef2] py-2 text-white hover:bg-[#e32b3d]"
               onClick={props.login}
             >
-              login
+              Login
             </button>
           </form>
         </section>

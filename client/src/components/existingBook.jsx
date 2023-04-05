@@ -72,7 +72,7 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
                 />
               </div>
               <button
-                className="mx-auto mt-4 mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#d42133]"
+                className="mx-auto mt-4 mb-6 items-center rounded-full bg-[#ff293ef2] px-12 py-2 text-center hover:bg-[#e32b3d]"
                 onClick={handleDelete}
               >
                 Delete
