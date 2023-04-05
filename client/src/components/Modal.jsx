@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "./Button";
+import { saveCalendarEvent } from "../utils";
 
 function Modal({ props }) {
   return (
@@ -91,7 +93,7 @@ function Modal({ props }) {
                       }
                     ></div>
                   </div>
-                  <div className="m-0 mr-2">email</div>
+                  <div className="m-0 mr-2">Email</div>
                 </label>
                 <label className="m-0 mb-2 flex cursor-pointer items-center ">
                   <div className="relative m-0 ">
@@ -115,74 +117,61 @@ function Modal({ props }) {
                       }
                     ></div>
                   </div>
-                  <div className="m-0 mr-2">sms</div>
+                  <div className="m-0 mr-2">SMS</div>
                 </label>
-                <label className="m-0 mb-2 flex cursor-pointer items-center ">
-                  <div className="relative m-0 ">
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      onChange={props.onBookChange("calendar")}
-                    />
-                    <div
-                      className={
-                        props.book.calendar
-                          ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
-                          : "ml-0 mr-2 h-8 w-12 rounded-full bg-gray-500"
-                      }
-                    ></div>
-                    <div
-                      className={
-                        props.book.calendar
-                          ? "dot absolute left-5 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
-                          : "dot absolute left-1 top-1 ml-0 h-6 w-6 rounded-full bg-white transition"
-                      }
-                    ></div>
-                  </div>
-                  <div className="m-0 mr-2">calendar</div>
-                </label>
-                <label className="m-0 flex flex-wrap items-center">
+                <label className="m-0 mt-3 flex flex-wrap items-center">
                   Upload a cover photo
                   <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
                   <input type="file" onChange={props.onBookChange("photo")} />
                   <img
                     src={props.book.photo}
                     alt=""
-                    className="m-0 mt-2 max-h-20"
+                    className="m-0 mt-1 max-h-28"
                   />
                 </label>
               </div>
             </section>
           </div>
         </div>
-        <div className="mb-6 mt-2 flex items-center justify-center">
-          <button
-            className="mr-4 rounded-full bg-gray-500 px-7 py-2 text-white hover:bg-gray-600"
-            onClick={() => {
-              props.setOpen(!props.open);
-              props.setBook({
-                title: null,
-                author: null,
-                location: null,
-                due_date: null,
-                email: false,
-                SMS: false,
-                calendar: false,
-                photo: null,
-              });
-            }}
-          >
-            cancel
-          </button>
-          <button
-            className="rounded-full bg-blue-500 px-9 py-2 text-white hover:bg-blue-600"
-            onClick={() => {
-              props.saveBook();
-              props.setIsSave(true);
-            }}
-          >
-            save
-          </button>
+        <div className="mb-6 mt-2 flex flex-col items-center justify-center">
+          {Object.values(props.book).every((param) => param !== null) ? (
+            <Button
+              buttonTitle={"Calendar Event"}
+              onClick={saveCalendarEvent}
+              book={props.book}
+            />
+          ) : (
+            <></>
+          )}
+          <section>
+            <button
+              className="mr-4 rounded-full bg-gray-500 px-7 py-2 text-white hover:bg-gray-600"
+              onClick={() => {
+                props.setOpen(!props.open);
+                props.setBook({
+                  title: null,
+                  author: null,
+                  location: null,
+                  due_date: null,
+                  email: false,
+                  SMS: false,
+                  calendar: false,
+                  photo: null,
+                });
+              }}
+            >
+              cancel
+            </button>
+            <button
+              className="rounded-full bg-blue-500 px-9 py-2 text-white hover:bg-blue-600"
+              onClick={() => {
+                props.saveBook();
+                props.setIsSave(true);
+              }}
+            >
+              save
+            </button>
+          </section>
         </div>
       </div>
     </div>

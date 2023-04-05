@@ -33,33 +33,33 @@ function Home() {
     setBook,
   };
 
-  // Function that makes a post request to save the book when none of the input fields are empty
+  // Function that makes a post and get request to save the book and send SMS when none of the input fields are empty
   const handleSave = async () => {
     const isNotNull = Object.values(book).every((param) => param !== null);
 
     if (isNotNull) {
       try {
-        await Promise.all([
-          axios.post("http://localhost:8001/api/books/new", book),
+        if (book.SMS === true) {
           axios.get(`http://localhost:8001/api/twilio-api/${token}`, {
             params: { book },
-          }),
-        ]).then(
-          setIsSave(false),
-          setOpen(false),
-          setBook({
-            user_id: token,
-            alert_time: "",
-            title: null,
-            author: null,
-            location: null,
-            due_date: null,
-            email: false,
-            SMS: false,
-            calendar: false,
-            photo: null,
-          })
-        );
+          });
+        }
+
+        await axios.post("http://localhost:8001/api/books/new", book);
+        setIsSave(false);
+        setOpen(false);
+        setBook({
+          user_id: token,
+          alert_time: "",
+          title: null,
+          author: null,
+          location: null,
+          due_date: null,
+          email: false,
+          SMS: false,
+          calendar: false,
+          photo: null,
+        });
       } catch (error) {
         console.error(error);
       }
