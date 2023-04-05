@@ -96,7 +96,7 @@ function Home() {
         <>
           <Modal props={props} />
           <Navbar />
-          <h1 className="px-8 py-5 text-lg">
+          <h1 className="px-8 py-5">
             Keep track of borrowed library books by adding them to your book
             roster!
           </h1>
@@ -116,7 +116,7 @@ function Home() {
           <Navbar />
           <h1 className="py-5 text-lg">
             Keep track of borrowed library books by adding them to your book
-            roster!
+            roster and creating alerts!
           </h1>
           <div className="sm:gris-cols-1 grid gap-4 overflow-y-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <AddBook setOpen={setOpen} open={open} />
