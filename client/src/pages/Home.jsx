@@ -39,24 +39,30 @@ function Home() {
 
     if (isNotNull) {
       try {
-        await axios.post("http://localhost:8001/api/books/new", book);
+        await Promise.all([
+          axios.post("http://localhost:8001/api/books/new", book),
+          axios.get(`http://localhost:8001/api/twilio-api/${token}`, {
+            params: { book },
+          }),
+        ]).then(
+          setIsSave(false),
+          setOpen(false),
+          setBook({
+            user_id: token,
+            alert_time: "",
+            title: null,
+            author: null,
+            location: null,
+            due_date: null,
+            email: false,
+            SMS: false,
+            calendar: false,
+            photo: null,
+          })
+        );
       } catch (error) {
         console.error(error);
       }
-      setIsSave(false);
-      setOpen(false);
-      setBook({
-        user_id: token,
-        alert_time: "",
-        title: null,
-        author: null,
-        location: null,
-        due_date: null,
-        email: false,
-        SMS: false,
-        calendar: false,
-        photo: null,
-      });
     }
   };
 

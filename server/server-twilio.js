@@ -5,7 +5,7 @@ const twilioPhone = process.env.TWILIO_PHONE_NUMBER; //Twilio Phone Number - Whe
 const client = require('twilio')(accountSid, authToken);
 
 // Function takes in a string as a message and sends it via SMS from the Twilio API
-const sendSMSToUser = function(message) {
+const sendSMSToUser = function(message, number) {
   client.messages
     .create({
       body: message,

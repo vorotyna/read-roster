@@ -10,7 +10,7 @@ const getUserById = async (id) => {
   const data = await db.query(
     `SELECT * FROM users
      WHERE id = $1;`, [id]);
-  return data.rows;
+  return data.rows[0];
 };
 
 const addUser = async (name, email, password, phone) => {

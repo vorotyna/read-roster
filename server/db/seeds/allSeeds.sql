@@ -7,7 +7,7 @@ INSERT INTO users (
   'Liso',
   '123',
   'liso@piso.com',
-  '1111111111'
+  '+16506648860'
 );
 INSERT INTO users (
   first_name,
@@ -18,7 +18,7 @@ INSERT INTO users (
   'Luko',
   '123',
   'luko@puko.com',
-  '1111111112'
+  '+16503333655'
 );
 
 
