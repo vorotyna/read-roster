@@ -14,8 +14,12 @@ router
       .then(data => {
         let message = `Hello, ${data.first_name}! This is a reminder that ${req.query.book.title} is due on ${req.query.book.due_date} at ${req.query.book.location}.`;
         let phone = data.phone_number;
+        let alertTime = new Date(req.query.book.alert_time);
+        let time = alertTime.toISOString();
 
-        // sendSMSToUser(message, phone);
+        console.log("MEEESSAAAAGE", message, phone, time);
+
+        sendSMSToUser(message, phone, time);
       })
       .catch(error => {
         console.error("Could not send SMS", error);
