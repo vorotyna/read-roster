@@ -13,7 +13,7 @@ function NewUser({ props }) {
         <section>
           <h2 className="text-center text-2xl	font-medium">Create account</h2>
           <p className="mb-8 text-center">
-            Never miss an overdue library book again
+            Never have an overdue library book again
           </p>
         </section>
         <section className="flex flex-col items-center">
