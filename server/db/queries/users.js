@@ -9,7 +9,9 @@ const getAllUsers = async () => {
 const getUserById = async (id) => {
   const data = await db.query(
     `SELECT * FROM users
-     WHERE id = $1;`, [id]);
+     WHERE id = $1;`,
+    [id]
+  );
   return data.rows[0];
 };
 

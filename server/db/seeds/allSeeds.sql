@@ -28,7 +28,7 @@ INSERT INTO books (user_id, title, author, location, photo) VALUES (1, 'The Outs
 INSERT INTO books (user_id, title, author, location, photo) VALUES (2, 'A Thousand Splendid Suns', 'Khaled Hosseini', 'Luko Library', 'https://productimages.worldofbooks.com/074758589X.jpg');
 
 
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email, calendar) VALUES (1, 1, '2023-03-26', '2023-04-10T22:35', TRUE, FALSE, FALSE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email, calendar) VALUES (2, 1, '2023-04-27', '2023-04-10T22:35', FALSE, TRUE, FALSE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email, calendar) VALUES (3, 1, '2023-04-28', '2023-05-10T22:35', FALSE, TRUE, TRUE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email, calendar) VALUES (4, 2, '2023-04-29', '2023-05-10T22:35', FALSE, FALSE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (1, 1, '2023-03-26', '2023-04-10T22:35', TRUE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (2, 1, '2023-04-27', '2023-04-10T22:35', TRUE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (3, 1, '2023-04-28', '2023-05-10T22:35', FALSE, TRUE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (4, 2, '2023-04-29', '2023-05-10T22:35', FALSE, FALSE);

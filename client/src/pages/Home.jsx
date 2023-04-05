@@ -58,7 +58,6 @@ function Home() {
           due_date: null,
           email: false,
           SMS: false,
-          calendar: false,
           photo: null,
         });
       } catch (error) {

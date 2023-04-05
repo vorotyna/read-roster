@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Toggle({ buttonTitle, book, updateAlerts }) {
+function Toggle({ buttonTitle, book, updateAlerts, name }) {
   const [toggle, setToggle] = useState(book[buttonTitle]);
 
   const updateToggle = () => {
@@ -32,7 +32,7 @@ function Toggle({ buttonTitle, book, updateAlerts }) {
           }
         ></div>
       </div>
-      <div className="m-0 mr-2">{buttonTitle}</div>
+      <div className="m-0 mr-2">{name}</div>
     </div>
   );
 }

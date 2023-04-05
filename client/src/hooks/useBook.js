@@ -12,7 +12,6 @@ function useBook() {
     alert_time: "",
     email: false,
     SMS: false,
-    calendar: false,
     photo: null,
   });
 
@@ -38,9 +37,6 @@ function useBook() {
         break;
       case "SMS":
         setBook({ ...book, SMS: !book.SMS });
-        break;
-      case "calendar":
-        setBook({ ...book, calendar: !book.calendar });
         break;
       case "photo":
         setBook({ ...book, photo: URL.createObjectURL(event.target.files[0]) });

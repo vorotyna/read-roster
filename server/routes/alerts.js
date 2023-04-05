@@ -8,21 +8,16 @@ const alerts = require('../db/queries/alerts');
 router
   .route('/update_alert')
   .put((req, res) => {
-    console.log("Starting update to alert", req.body);
     const book_id = req.body.book_id;
     const SMS = req.body.SMS;
     const email = req.body.email;
-    const calendar = req.body.calendar;
     let alert = {
       book_id,
       SMS,
       email,
-      calendar,
     };
-    console.log(alert);
     alerts.updateAlerts(alert)
       .then(data => {
-        console.log(`Updated alert ${book_id}`, data);
         res.status(200).send(data);
       })
       .catch(error => {

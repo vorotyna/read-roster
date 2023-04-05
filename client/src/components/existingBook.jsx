@@ -14,7 +14,6 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
       await axios.put("http://localhost:8001/api/alerts/update_alert", {
         book_id: book.book_id,
         SMS: book.sms,
-        calendar: book.calendar,
         email: book.email,
       });
     } catch (error) {
@@ -51,18 +50,21 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
               <h1 className="mt-4 font-semibold">Current alert preferences:</h1>
               <div className="m-6 my-0 px-6">
                 <Toggle
-                  buttonTitle={"Email"}
+                  buttonTitle={"email"}
+                  name={"Email"}
                   book={book}
                   updateAlerts={updateAlerts}
                 />
                 <Toggle
-                  buttonTitle={"SMS"}
+                  buttonTitle={"sms"}
+                  name={"SMS"}
                   book={book}
                   updateAlerts={updateAlerts}
                 />
                 <Button
                   buttonTitle={"Calendar"}
                   book={book}
+                  name={"Calendar"}
                   onClick={saveCalendarEvent}
                   className={
                     "m-0 flex w-full cursor-pointer items-center rounded bg-blue-200 p-2 px-4 hover:bg-blue-400"

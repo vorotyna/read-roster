@@ -10,13 +10,13 @@ router
   .route('/')
   .get((req, res) => {
     const token = req.headers.token;
-    console.log(token);
+
     books.getAllBooksAndAlertsByUserId(token)
       .then(data => {
         res.status(200).send(data);
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
         res.status(500).send(error);
       });
   });
@@ -32,7 +32,6 @@ router
     const alert_time = req.body.alert_time;
     const SMS = req.body.SMS;
     const email = req.body.email;
-    const calendar = req.body.calendar;
     const photo = req.body.photo;
 
     let book = {
@@ -53,8 +52,7 @@ router
           due_date,
           alert_time,
           SMS,
-          email,
-          calendar
+          email
         };
 
         alerts.addAlerts(alert)
