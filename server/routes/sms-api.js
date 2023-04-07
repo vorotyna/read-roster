@@ -12,7 +12,7 @@ router
 
     users.getUserById(id)
       .then(data => {
-        let message = `Hello, ${data.first_name}! This is a reminder that ${req.query.book.title} is due on ${req.query.book.due_date} at ${req.query.book.location}.`;
+        let message = `Hello, ${data.first_name}! This is a reminder that ${req.query.book.title} is due on ${req.query.book.due_date.split("T")[0]} at ${req.query.book.location}.`;
         let phone = data.phone_number;
         let alertTime = new Date(req.query.book.alert_time);
         let time = alertTime.toISOString();

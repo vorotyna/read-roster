@@ -17,16 +17,16 @@ const userRouter = require("./routes/users");
 const booksRouter = require("./routes/books");
 const loginRouter = require("./routes/login");
 const alertsRouter = require("./routes/alerts");
-const twilioRoutes = require("./routes/twilio-api");
-const mailgunRoutes = require("./routes/mailgun-api");
+const smsRoutes = require("./routes/sms-api");
+const emailRoutes = require("./routes/email-api");
 
 // Routes
 app.use("/api/users", userRouter);
 app.use("/api/books", booksRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/alerts", alertsRouter);
-app.use("/api/twilio-api", twilioRoutes);
-app.use("/api/mailgun-api", mailgunRoutes);
+app.use("/api/email-api", emailRoutes);
+app.use("/api/sms-api", smsRoutes);
 
 // Home Route
 app.get("/", (req, res) => {

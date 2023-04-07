@@ -13,8 +13,8 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
   const updateAlerts = async (alertType) => {
     book[alertType] = !book[alertType];
 
-    if (book.SMS === true) {
-      axios.get(`http://localhost:8001/api/twilio-api/${book.user_id}`, {
+    if (book[alertType]) {
+      axios.get(`http://localhost:8001/api/${alertType}-api/${book.user_id}`, {
         params: { book },
       });
     }

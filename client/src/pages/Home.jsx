@@ -41,13 +41,13 @@ function Home() {
     if (isNotNull) {
       try {
         if (book.SMS === true) {
-          axios.get(`http://localhost:8001/api/twilio-api/${token}`, {
+          axios.get(`http://localhost:8001/api/sms-api/${token}`, {
             params: { book },
           });
         }
 
         if (book.email === true) {
-          axios.get(`http://localhost:8001/api/mailgun-api/${token}`, {
+          axios.get(`http://localhost:8001/api/email-api/${token}`, {
             params: { book },
           });
         }
