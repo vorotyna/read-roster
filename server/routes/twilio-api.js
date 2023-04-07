@@ -17,7 +17,7 @@ router
         let alertTime = new Date(req.query.book.alert_time);
         let time = alertTime.toISOString();
 
-        console.log("MEEESSAAAAGE", message, phone, time);
+        console.log("SMS MESSAGE", message, phone, time);
 
         sendSMSToUser(message, phone, time);
       })

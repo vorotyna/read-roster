@@ -18,6 +18,7 @@ const booksRouter = require("./routes/books");
 const loginRouter = require("./routes/login");
 const alertsRouter = require("./routes/alerts");
 const twilioRoutes = require("./routes/twilio-api");
+const mailgunRoutes = require("./routes/mailgun-api");
 
 // Routes
 app.use("/api/users", userRouter);
@@ -25,6 +26,7 @@ app.use("/api/books", booksRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/alerts", alertsRouter);
 app.use("/api/twilio-api", twilioRoutes);
+app.use("/api/mailgun-api", mailgunRoutes);
 
 // Home Route
 app.get("/", (req, res) => {

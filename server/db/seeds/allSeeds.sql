@@ -6,7 +6,7 @@ INSERT INTO users (
 ) VALUES (
   'Liso',
   '123',
-  'liso@piso.com',
+  'alisa.vorotyn@gmail.com',
   '+16506648860'
 );
 INSERT INTO users (
@@ -17,7 +17,7 @@ INSERT INTO users (
 ) VALUES (
   'Luko',
   '123',
-  'luko@puko.com',
+  'luka.mircetic@gmail.com',
   '+16503333655'
 );
 

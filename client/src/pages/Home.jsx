@@ -46,6 +46,12 @@ function Home() {
           });
         }
 
+        if (book.email === true) {
+          axios.get(`http://localhost:8001/api/mailgun-api/${token}`, {
+            params: { book },
+          });
+        }
+
         await axios.post("http://localhost:8001/api/books/new", book);
         setIsSave(false);
         setOpen(false);
