@@ -12,6 +12,13 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
   // Function to make a PUT request to update alerts
   const updateAlerts = async (alertType) => {
     book[alertType] = !book[alertType];
+
+    if (book.SMS === true) {
+      axios.get(`http://localhost:8001/api/twilio-api/${book.user_id}`, {
+        params: { book },
+      });
+    }
+
     try {
       await axios.put("http://localhost:8001/api/alerts/update_alert", {
         book_id: book.book_id,
