@@ -12,9 +12,9 @@ const sendSMSToUser = function(message, number, time) {
       body: message,
       from: twilioPhone,
       to: number,
-      // sendAt: time,
-      // messagingServiceSid: messagingServiceSid,
-      // scheduleType: "fixed",
+      sendAt: time,
+      messagingServiceSid: messagingServiceSid,
+      scheduleType: "fixed",
     })
     .then(message => console.log(message.sid));
 };

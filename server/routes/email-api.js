@@ -14,7 +14,7 @@ router
       .then(data => {
         let book = req.query.book.title;
         let message =
-          `Hello ${data.first_name},\n\nThis is a reminder that ${book} is due on ${req.query.book.due_date} at ${req.query.book.location}.\n\nKind regards,\nreadroster`;
+          `Hello ${data.first_name},\n\nThis is a reminder that ${book} is due on ${req.query.book.due_date.split("T")[0]} at ${req.query.book.location}.\n\nKind regards,\nreadroster`;
         let email = data.email;
         const alertTime = new Date(req.query.book.alert_time);
         const time = alertTime.toUTCString();
