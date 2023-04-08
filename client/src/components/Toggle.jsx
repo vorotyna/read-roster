@@ -13,9 +13,13 @@ function Toggle({ buttonTitle, book, updateAlerts, name }) {
   };
 
   return (
-    <label className="m-0 mb-2 flex cursor-pointer items-center">
-      <div className="relative m-0 ">
+    <label
+      className="m-0 mb-2 flex w-1/2 cursor-pointer items-center"
+      htmlFor="toggleC"
+    >
+      <div className="relative m-0">
         <input
+          id="toggleC"
           type="checkbox"
           onChange={() => updateToggle()}
           className="sr-only"

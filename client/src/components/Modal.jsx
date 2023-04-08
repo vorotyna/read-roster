@@ -69,18 +69,21 @@ function Modal({ props }) {
               </form>
             </section>
             <section className="ml-4 mt-4 w-full sm:mt-0 sm:w-1/2">
-              <div className="m-0 flex flex-col">
-                <label className="m-0">Due date alert methods </label>
-                <label className="m-0 mb-2 flex cursor-pointer items-center">
+              <p className="m-0">Due date alert methods </p>
+              <div className="item-center m-0 flex w-full flex-col justify-center">
+                <label
+                  className="m-0 mb-2 flex w-0 cursor-pointer items-center"
+                  htmlFor="toggleA"
+                >
                   <div className="relative m-0 ">
                     <input
                       type="checkbox"
+                      id="toggleA"
                       className="sr-only"
                       checked={props.book.email}
                       onChange={props.onBookChange("email")}
                     />
                     <div
-                      id="email-toggle"
                       className={
                         props.book.email
                           ? "ml-0 mr-2 h-8 w-12 rounded-full bg-blue-500"
@@ -97,10 +100,14 @@ function Modal({ props }) {
                   </div>
                   <div className="m-0 mr-2">Email</div>
                 </label>
-                <label className="m-0 mb-2 flex cursor-pointer items-center ">
+                <label
+                  className="m-0 mb-2 flex w-0 cursor-pointer items-center"
+                  htmlFor="toggleB"
+                >
                   <div className="relative m-0 ">
                     <input
                       type="checkbox"
+                      id="toggleB"
                       className="sr-only"
                       onChange={props.onBookChange("SMS")}
                     />
