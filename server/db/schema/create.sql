@@ -26,5 +26,6 @@ CREATE TABLE alerts (
     due_date DATE NOT NULL,
     alert_time TIMESTAMP NOT NULL,
     SMS BOOLEAN DEFAULT FALSE,
-    email BOOLEAN DEFAULT FALSE
+    email BOOLEAN DEFAULT FALSE,
+    SMS_sid VARCHAR(255)
 );
