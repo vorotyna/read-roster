@@ -16,15 +16,21 @@ Readroster is an online library book tracker built using PostgreSQL, Express.js,
 
 https://user-images.githubusercontent.com/114186235/230831231-8621175b-82f6-488c-a2bd-05cf2f368dff.mov
 
-### Add A Book
+### Edit Alerts / Delete Book
 
-https://user-images.githubusercontent.com/114186235/230831231-8621175b-82f6-488c-a2bd-05cf2f368dff.mov
+https://user-images.githubusercontent.com/114186235/230833902-71c88677-3b2f-4eae-8e81-a9b4764108aa.mov
 
+### iCal Event
 
+!["iCal"]()
 
-## Available Scripts
+### SMS Alert
 
-In the project directory, you can run:
+!["SMS API"]()
+
+### Email Alert
+
+!["Email API"]()
 
 ### `npm start`
 
