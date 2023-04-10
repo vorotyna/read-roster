@@ -6,11 +6,11 @@ Readroster is an online library book tracker built using PostgreSQL, Express.js,
 
 ### Registration Page
 
-https://user-images.githubusercontent.com/97066398/213570084-502bba6f-6d07-47c5-a6d0-44ab5a8cbdc2.mov
+!["Registration"](https://github.com/vorotyna/read-roster/blob/main/docs/register.png?raw=true)
 
 ### Login Page
 
-https://user-images.githubusercontent.com/97066398/213569867-5bcccb07-6035-4d83-9afe-bab2f6eb191d.mov
+!["Login"](https://github.com/vorotyna/read-roster/blob/main/docs/login.png?raw=true)
 
 ### Figma
 
