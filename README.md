@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# readroster
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Created by [Alisa Vorotyntseva](https://github.com/vorotyna)
+
+Readroster is an online library book tracker built using PostgreSQL, Express.js, React & JavaScript, Tailwind CSS, Node.JS, Twilio API, and Mailgun API. The web application allows users to add/track their checked-out library books and customize alerts to remind them of any approaching due dates.
 
 ## Available Scripts
 
