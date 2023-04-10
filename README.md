@@ -22,15 +22,15 @@ https://user-images.githubusercontent.com/114186235/230833902-71c88677-3b2f-4eae
 
 ### iCal Event
 
-!["iCal"]()
+!["iCal"](https://github.com/vorotyna/read-roster/blob/main/docs/ical.png?raw=true)
 
 ### SMS Alert
 
-!["SMS API"]()
+!["SMS API"](https://github.com/vorotyna/read-roster/blob/main/docs/twilio.png?raw=true)
 
 ### Email Alert
 
-!["Email API"]()
+!["Email API"](https://github.com/vorotyna/read-roster/blob/main/docs/email.png?raw=true)
 
 ### `npm start`
 
