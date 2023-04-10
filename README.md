@@ -4,6 +4,26 @@ Created by [Alisa Vorotyntseva](https://github.com/vorotyna)
 
 Readroster is an online library book tracker built using PostgreSQL, Express.js, React & JavaScript, Tailwind CSS, Node.JS, Twilio API, and Mailgun API. The web application allows users to add/track their checked-out library books and customize alerts to remind them of any approaching due dates.
 
+### Registration Page
+
+https://user-images.githubusercontent.com/97066398/213570084-502bba6f-6d07-47c5-a6d0-44ab5a8cbdc2.mov
+
+### Login Page
+
+https://user-images.githubusercontent.com/97066398/213569867-5bcccb07-6035-4d83-9afe-bab2f6eb191d.mov
+
+### Figma
+
+!["Wireframe"](https://github.com/vorotyna/sportami/blob/main/docs/wireframe.png?raw=true)
+
+!["Colour Schemes"](https://github.com/vorotyna/sportami/blob/main/docs/colours.png?raw=true)
+
+!["ERD"](https://github.com/vorotyna/sportami/blob/main/docs/ERD.png?raw=true)
+
+
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
