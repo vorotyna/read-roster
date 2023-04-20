@@ -52,7 +52,20 @@ function Home() {
           });
         }
 
-        await axios.post("http://localhost:8001/api/books/new", book);
+        // Upload the photo to Cloudinary for future retrieval and storage
+        const formData = new FormData();
+        formData.append("file", book.photo);
+        formData.append("upload_preset", "readroster");
+        const photoUpload = await axios.post(
+          "https://api.cloudinary.com/v1_1/deagszuv0/upload",
+          formData
+        );
+
+        // POST to database using the returned secure_url from Cloudinary as the photoURL
+        await axios.post("http://localhost:8001/api/books/new", {
+          ...book,
+          photoURL: photoUpload.data.secure_url,
+        });
         setIsSave(false);
         setOpen(false);
         setBook({
@@ -65,6 +78,7 @@ function Home() {
           email: false,
           SMS: false,
           photo: null,
+          photoURL: null,
         });
       } catch (error) {
         console.error(error);

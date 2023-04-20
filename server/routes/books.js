@@ -32,7 +32,7 @@ router
     const alert_time = req.body.alert_time;
     const SMS = req.body.SMS;
     const email = req.body.email;
-    const photo = req.body.photo;
+    const photo = req.body.photoURL;
 
     let book = {
       user_id,

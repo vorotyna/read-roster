@@ -15,6 +15,7 @@ function useBook() {
     email: false,
     SMS: false,
     photo: null,
+    photoURL: null,
   });
 
   // Function updates the book state when a specific case changes
@@ -42,7 +43,7 @@ function useBook() {
         setBook({ ...book, SMS: !book.SMS });
         break;
       case "photo":
-        setBook({ ...book, photo: URL.createObjectURL(event.target.files[0]) });
+        setBook({ ...book, photo: event.target.files[0], photoURL: URL.createObjectURL(event.target.files[0]) });
         break;
       default:
         console.log("Invalid book change");

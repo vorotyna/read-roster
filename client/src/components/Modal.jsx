@@ -133,7 +133,7 @@ function Modal({ props }) {
                   <span className="m-0 text-[#ff293ef2]">&nbsp;*</span>
                   <input type="file" onChange={props.onBookChange("photo")} />
                   <img
-                    src={props.book.photo}
+                    src={props.book.photoURL}
                     alt=""
                     className="m-0 mt-1 max-h-28"
                   />
