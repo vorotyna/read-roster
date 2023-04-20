@@ -34,7 +34,7 @@ https://user-images.githubusercontent.com/114186235/230833902-71c88677-3b2f-4eae
 
 ## How It's Made:
 
-**Tech used:** PostgreSQL, Express.js, React, Node.js, JavaScript, Tailwind CSS, Twilio, Mailgun
+**Tech used:** PostgreSQL, Express.js, React, Node.js, JavaScript, Tailwind CSS, Twilio API, Mailgun API, Cloudinary API
 
 ## Setup:
 
