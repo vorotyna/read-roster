@@ -31,10 +31,10 @@ INSERT INTO books (user_id, title, author, location, photo) VALUES (1, 'Where th
 INSERT INTO books (user_id, title, author, location, photo) VALUES (2, 'A Thousand Splendid Suns', 'Khaled Hosseini', 'Luko Library', 'https://productimages.worldofbooks.com/074758589X.jpg');
 
 
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (1, 1, '2023-05-01', '2023-04-10T22:35', TRUE, FALSE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (2, 1, '2023-04-27', '2023-04-10T22:35', TRUE, TRUE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (3, 1, '2023-04-28', '2023-05-10T22:35', FALSE, TRUE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (4, 1, '2023-05-21', '2023-05-10T22:35', FALSE, FALSE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (5, 1, '2023-04-28', '2023-05-10T22:35', FALSE, TRUE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (6, 1, '2023-04-20', '2023-05-10T22:35', TRUE, TRUE);
-INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (7, 2, '2023-04-29', '2023-05-10T22:35', FALSE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (1, 1, '2030-05-01', '2030-04-10T22:35', TRUE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (2, 1, '2030-04-27', '2030-04-10T22:35', TRUE, TRUE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (3, 1, '2030-04-28', '2030-05-10T22:35', FALSE, TRUE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (4, 1, '2030-05-21', '2030-05-10T22:35', FALSE, FALSE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (5, 1, '2030-04-28', '2030-05-10T22:35', FALSE, TRUE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (6, 1, '2030-04-20', '2030-05-10T22:35', TRUE, TRUE);
+INSERT INTO alerts (book_id, user_id, due_date, alert_time, SMS, email) VALUES (7, 2, '2030-04-29', '2030-05-10T22:35', FALSE, FALSE);
