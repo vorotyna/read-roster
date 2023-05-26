@@ -22,4 +22,19 @@ const updateAlerts = async (alert) => {
   return data.rows[0];
 };
 
-module.exports = { addAlerts, updateAlerts };
+const updateSMS_sid = async (SMS_sid, title) => {
+  const data = await db.query(
+    `UPDATE alerts
+    SET SMS_sid = 10
+    WHERE book_id = (
+        SELECT id
+        FROM books
+        WHERE title = Second
+    )
+    RETURNING *;`,
+    [SMS_sid, title]
+  );
+  return data.rows[0];
+};
+
+module.exports = { addAlerts, updateAlerts, updateSMS_sid };
