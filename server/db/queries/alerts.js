@@ -25,11 +25,11 @@ const updateAlerts = async (alert) => {
 const updateSMS_sid = async (SMS_sid, title) => {
   const data = await db.query(
     `UPDATE alerts
-    SET SMS_sid = 10
+    SET SMS_sid = $1
     WHERE book_id = (
         SELECT id
         FROM books
-        WHERE title = Second
+        WHERE title = $2
     )
     RETURNING *;`,
     [SMS_sid, title]

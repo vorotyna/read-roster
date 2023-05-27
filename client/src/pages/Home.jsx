@@ -41,13 +41,13 @@ function Home() {
     if (isNotNull) {
       try {
         if (book.SMS === true) {
-          axios.post(`http://localhost:8001/api/sms-api/${token}`, {
+          await axios.post(`http://localhost:8001/api/sms-api/${token}`, {
             book,
           });
         }
 
         if (book.email === true) {
-          axios.get(`http://localhost:8001/api/email-api/${token}`, {
+          await axios.get(`http://localhost:8001/api/email-api/${token}`, {
             params: { book },
           });
         }
