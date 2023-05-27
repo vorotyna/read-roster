@@ -30,29 +30,18 @@ const sendNewSMSToUser = function(message, number, time) {
   });
 };
 
-// Function takes in an existing SMS sid from the alerts table in DB and stops the scheduled send from the Twilio API
-// MODIFY
+// Function takes in an existing SMS sid from the alerts table in DB and cancels the scheduled send from the Twilio API
 const unsendSMS = function(SMS_sid) {
-  return new Promise((resolve, reject) => {
-
-    client.messages
-      .create({
-        body: message,
-        from: twilioPhone,
-        to: number,
-        sendAt: time,
-        messagingServiceSid: messagingServiceSid,
-        scheduleType: "fixed",
-      })
-
-      .then(message => {
-        resolve(message.sid);
-      })
-      .catch(error => {
-        reject(error);
-      });
-
-  });
+  client.messages(SMS_sid)
+    .update({
+      status: 'canceled'
+    })
+    .then(message => {
+      console.log(`SMS with SID ${SMS_sid} has been canceled`);
+    })
+    .catch(error => {
+      console.error('Error canceling the scheduled SMS', error);
+    });
 };
 
 module.exports = { sendNewSMSToUser, unsendSMS };
