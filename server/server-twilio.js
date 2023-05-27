@@ -30,4 +30,29 @@ const sendNewSMSToUser = function(message, number, time) {
   });
 };
 
-module.exports = { sendNewSMSToUser };
+// Function takes in an existing SMS sid from the alerts table in DB and stops the scheduled send from the Twilio API
+// MODIFY
+const unsendSMS = function(SMS_sid) {
+  return new Promise((resolve, reject) => {
+
+    client.messages
+      .create({
+        body: message,
+        from: twilioPhone,
+        to: number,
+        sendAt: time,
+        messagingServiceSid: messagingServiceSid,
+        scheduleType: "fixed",
+      })
+
+      .then(message => {
+        resolve(message.sid);
+      })
+      .catch(error => {
+        reject(error);
+      });
+
+  });
+};
+
+module.exports = { sendNewSMSToUser, unsendSMS };

@@ -8,6 +8,18 @@ const { sendNewSMSToUser } = require('../server-twilio');
 
 router
   .route('/:id')
+  .get((req, res) => {
+    const book_id = parseInt(req.params.id);
+
+    alerts.retrieveSMS_sid(book_id)
+      .then(result => {
+        const SMS_sid = result.sms_sid;
+
+        // DO SOMETHING TO UNSEND
+      });
+
+  })
+
   .post((req, res) => {
     const id = parseInt(req.params.id);
 
