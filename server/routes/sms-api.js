@@ -4,7 +4,7 @@ const users = require('../db/queries/users');
 const alerts = require('../db/queries/alerts');
 const { sendSMSToUser } = require('../server-twilio');
 
-// This route will send a SMS to the user
+// This route will send a SMS to the user and will update the alerts table with the message SID the corresponds to the text
 
 router
   .route('/:id')
