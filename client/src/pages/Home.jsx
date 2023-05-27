@@ -34,24 +34,12 @@ function Home() {
     setBook,
   };
 
-  // Function that makes a post and get request to save the book and send SMS when none of the input fields are empty
+  // Function that makes post requests to save the book and send SMS/email when none of the input fields are empty
   const handleSave = async () => {
     const isNotNull = Object.values(book).every((param) => param !== null);
 
     if (isNotNull) {
       try {
-        if (book.SMS === true) {
-          await axios.post(`http://localhost:8001/api/sms-api/${token}`, {
-            book,
-          });
-        }
-
-        if (book.email === true) {
-          await axios.get(`http://localhost:8001/api/email-api/${token}`, {
-            params: { book },
-          });
-        }
-
         // Upload the photo to Cloudinary for future retrieval and storage
         const formData = new FormData();
         formData.append("file", book.photo);
@@ -66,6 +54,19 @@ function Home() {
           ...book,
           photoURL: photoUpload.data.secure_url,
         });
+
+        if (book.SMS === true) {
+          await axios.post(`http://localhost:8001/api/sms-api/${token}`, {
+            book,
+          });
+        }
+
+        if (book.email === true) {
+          await axios.get(`http://localhost:8001/api/email-api/${token}`, {
+            params: { book },
+          });
+        }
+
         setIsSave(false);
         setOpen(false);
         setBook({

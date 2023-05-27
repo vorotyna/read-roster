@@ -22,6 +22,7 @@ router
           .then(SMS_sid => {
             console.log('SID THE SLOTH', SMS_sid, req.body.book.title);
             alerts.updateSMS_sid(SMS_sid, req.body.book.title);
+            res.status(200).send(SMS_sid);
           })
           .catch(error => {
             console.error("Could not retieve message SID", error);
