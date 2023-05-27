@@ -7,7 +7,7 @@ const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
 const client = require('twilio')(accountSid, authToken);
 
 // Function takes in a string as a message and sends it via SMS from the Twilio API
-const sendSMSToUser = function(message, number, time) {
+const sendNewSMSToUser = function(message, number, time) {
   return new Promise((resolve, reject) => {
 
     client.messages
@@ -30,4 +30,4 @@ const sendSMSToUser = function(message, number, time) {
   });
 };
 
-module.exports = { sendSMSToUser };
+module.exports = { sendNewSMSToUser };

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const users = require('../db/queries/users');
 const alerts = require('../db/queries/alerts');
-const { sendSMSToUser } = require('../server-twilio');
+const { sendNewSMSToUser } = require('../server-twilio');
 
 // This route will send a SMS to the user and will update the alerts table with the message SID the corresponds to the text
 
@@ -18,7 +18,7 @@ router
         let alertTime = new Date(req.body.book.alert_time);
         let time = alertTime.toISOString();
 
-        sendSMSToUser(message, phone, time)
+        sendNewSMSToUser(message, phone, time)
           .then(SMS_sid => {
             console.log('SID THE SLOTH', SMS_sid, req.body.book.title);
             alerts.updateSMS_sid(SMS_sid, req.body.book.title);
