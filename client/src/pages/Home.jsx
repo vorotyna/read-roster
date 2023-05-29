@@ -56,9 +56,7 @@ function Home() {
         });
 
         if (book.SMS === true) {
-          await axios.post(`http://localhost:8001/api/sms-api/${token}`, {
-            book,
-          });
+          await axios.post(`http://localhost:8001/api/sms-api/${token}`, book);
         }
 
         if (book.email === true) {

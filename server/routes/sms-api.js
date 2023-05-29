@@ -25,11 +25,12 @@ router
 
   .post((req, res) => {
     const id = parseInt(req.params.id);
-    console.log("BODYODYODY", req.body);
 
     users.getUserById(id)
       .then(data => {
+
         let message = `Hello, ${data.first_name}! This is a reminder that ${req.body.title} is due on ${req.body.due_date.split("T")[0]} at ${req.body.location}.`;
+        console.log(message);
         let phone = data.phone_number;
         let alertTime = new Date(req.body.alert_time);
         let time = alertTime.toISOString();
