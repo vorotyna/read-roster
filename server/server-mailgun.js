@@ -25,4 +25,9 @@ const sendEmailToUser = function(book, message, email, time, callback) {
   });
 };
 
-module.exports = { sendEmailToUser };
+// Function takes in an existing email id from the alerts table in DB and cancels the scheduled send from the Mailgun API
+const unsendEmail = function(message_id) {
+  console.log("It is not possible to currently unschedule an email delivery with the Mailgun API");
+};
+
+module.exports = { sendEmailToUser, unsendEmail };

@@ -2,12 +2,26 @@ const express = require('express');
 const router = express.Router();
 const users = require('../db/queries/users');
 const alerts = require('../db/queries/alerts');
-const { sendEmailToUser } = require('../server-mailgun');
+const { sendEmailToUser, unsendEmail } = require('../server-mailgun');
 
 // This route will send an email to the user
 
 router
   .route('/:id')
+  .get((req, res) => {
+    const book_id = parseInt(req.params.id);
+
+    alerts.retrieveEmail_id(book_id)
+      .then(result => {
+        unsendEmail(result.email_id);
+        res.sendStatus(204);
+      })
+      .catch(error => {
+        console.error("Could not cancel email message", error);
+        res.status(500).send(error);
+      });
+  })
+
   .post((req, res) => {
     const id = parseInt(req.params.id);
     let message_id;
@@ -25,7 +39,7 @@ router
           if (error) {
             console.error('Error sending email:', error);
           } else {
-            message_id = messageId;
+            message_id = messageId.replace(/[<>]/g, "");
             alerts.updateEmail_id(message_id, req.body.title);
           }
         });
