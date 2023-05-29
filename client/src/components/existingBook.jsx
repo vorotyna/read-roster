@@ -15,14 +15,15 @@ function ExistingBook({ book, index, handleRender, saveCalendarEvent }) {
 
     // If alert is set to FALSE then send request to find the alerts info in the DB
     if (!book[alertType]) {
-      console.log(book.book_id);
       axios.get(`http://localhost:8001/api/${alertType}-api/${book.book_id}`);
     }
 
+    // If alert is set to TRUE then send request to create a new alert and push info in the DB
     if (book[alertType]) {
-      axios.get(`http://localhost:8001/api/${alertType}-api/${book.user_id}`, {
-        params: { book },
-      });
+      axios.post(
+        `http://localhost:8001/api/${alertType}-api/${book.user_id}`,
+        book
+      );
     }
 
     try {
