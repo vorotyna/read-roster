@@ -38,6 +38,10 @@ function Home() {
   const handleSave = async () => {
     const isNotNull = Object.values(book).every((param) => param !== null);
 
+    if (!isNotNull) {
+      setIsSave(false);
+    }
+
     if (isNotNull) {
       try {
         // Upload the photo to Cloudinary for future retrieval and storage
