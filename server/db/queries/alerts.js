@@ -37,6 +37,21 @@ const updateSMS_sid = async (SMS_sid, title) => {
   return data.rows[0];
 };
 
+const updateEmail_id = async (email_id, title) => {
+  const data = await db.query(
+    `UPDATE alerts
+    SET email_id = $1
+    WHERE book_id = (
+        SELECT id
+        FROM books
+        WHERE title = $2
+    )
+    RETURNING *;`,
+    [email_id, title]
+  );
+  return data.rows[0];
+};
+
 const retrieveSMS_sid = async (book_id) => {
   const data = await db.query(
     `SELECT SMS_sid
@@ -47,4 +62,4 @@ const retrieveSMS_sid = async (book_id) => {
   return data.rows[0];
 };
 
-module.exports = { addAlerts, updateAlerts, updateSMS_sid, retrieveSMS_sid };
+module.exports = { addAlerts, updateAlerts, updateSMS_sid, updateEmail_id, retrieveSMS_sid };

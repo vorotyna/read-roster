@@ -62,9 +62,10 @@ function Home() {
         }
 
         if (book.email === true) {
-          await axios.get(`http://localhost:8001/api/email-api/${token}`, {
-            params: { book },
-          });
+          await axios.post(
+            `http://localhost:8001/api/email-api/${token}`,
+            book
+          );
         }
 
         setIsSave(false);
